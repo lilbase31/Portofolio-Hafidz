@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio prototype for Hafidz Aulia Rachman — Graphic Designer & Visual Creative." />
+  <title>Hafidz Aulia Rachman — Visual Designer</title>
+
+  <style>
+    :root{
+      --bg:#f2f0ea;
+      --panel:#e8e4dc;
+      --ink:#101010;
+      --muted:#77736b;
+      --line:rgba(16,16,16,.18);
+      --accent:#d9ff55;
+      --max:1440px;
+      --radius:2px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+
+    .shell{
+      width:min(calc(100% - 48px), var(--max));
+      margin:auto;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:color-mix(in srgb, var(--bg) 86%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      height:76px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:24px;
+    }
+
+    .brand{
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .nav-meta{
+      justify-self:end;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:48px 0 24px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-kicker{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:24px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .hero-kicker .right{
+      max-width:360px;
+      color:var(--muted);
+      line-height:1.55;
+      text-transform:none;
+      letter-spacing:0;
+      font-size:14px;
+    }
+
+    .hero-title{
+      margin:40px 0 20px;
+      font-size:clamp(70px, 13vw, 190px);
+      line-height:.78;
+      letter-spacing:-.075em;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .hero-bottom{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:end;
+    }
+
+    .hero-role{
+      font-size:clamp(24px, 3.2vw, 48px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+      max-width:680px;
+    }
+
+    .hero-scroll{
+      justify-self:end;
+      text-align:right;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .section{
+      padding:110px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:32px;
+      margin-bottom:64px;
+      align-items:start;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .section-title{
+      margin:0;
+      font-size:clamp(44px, 7vw, 108px);
+      line-height:.88;
+      letter-spacing:-.055em;
+      text-transform:uppercase;
+      font-weight:800;
+      max-width:980px;
+    }
+
+    .discipline-list{
+      border-top:1px solid var(--line);
+    }
+
+    .discipline{
+      display:grid;
+      grid-template-columns:90px 1fr auto;
+      gap:24px;
+      align-items:center;
+      padding:34px 0;
+      border-bottom:1px solid var(--line);
+      transition:padding .25s ease, background .25s ease;
+    }
+
+    .discipline:hover{
+      padding-left:14px;
+      padding-right:14px;
+      background:rgba(255,255,255,.26);
+    }
+
+    .discipline-no{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .discipline-name{
+      font-size:clamp(30px, 4.4vw, 68px);
+      line-height:1;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .discipline-tag{
+      font-size:12px;
+      text-transform:uppercase;
+      color:var(--muted);
+      letter-spacing:.06em;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .project-card{
+      min-width:0;
+    }
+
+    .art{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:#ddd;
+      border-radius:var(--radius);
+      isolation:isolate;
+    }
+
+    .art::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.16),transparent 40%);
+      pointer-events:none;
+    }
+
+    .art-inner{
+      position:absolute;
+      inset:0;
+      transition:transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .project-card:hover .art-inner{
+      transform:scale(1.025);
+    }
+
+    .art-1{
+      background:
+        linear-gradient(135deg,#c5ff41 0 32%,transparent 32%),
+        linear-gradient(320deg,#111 0 38%,transparent 38%),
+        #e6e0d6;
+    }
+
+    .art-1:before{
+      content:"BOOK\A EDITORIAL";
+      white-space:pre;
+      position:absolute;
+      left:8%;
+      bottom:8%;
+      z-index:2;
+      font-size:clamp(30px,4vw,64px);
+      line-height:.85;
+      letter-spacing:-.05em;
+      font-weight:800;
+    }
+
+    .art-2{
+      background:
+        radial-gradient(circle at 70% 35%, #ff6d2d 0 8%, transparent 8.2%),
+        linear-gradient(90deg,#0f0f0f 0 27%,#efe9df 27% 100%);
+    }
+
+    .art-2:before{
+      content:"SOCIAL\A CAMPAIGN";
+      white-space:pre;
+      position:absolute;
+      right:8%;
+      top:10%;
+      font-size:clamp(30px,4vw,64px);
+      line-height:.85;
+      letter-spacing:-.05em;
+      font-weight:800;
+      text-align:right;
+    }
+
+    .art-3{
+      background:
+        linear-gradient(45deg, transparent 0 48%, #111 48% 52%, transparent 52%),
+        linear-gradient(-45deg, transparent 0 48%, #111 48% 52%, transparent 52%),
+        #f05a9c;
+      background-size:90px 90px;
+    }
+
+    .art-3:before{
+      content:"POSTER";
+      position:absolute;
+      inset:auto 8% 9% auto;
+      font-size:clamp(34px,5vw,78px);
+      letter-spacing:-.06em;
+      font-weight:800;
+      color:#fff5ec;
+    }
+
+    .art-4{
+      background:
+        radial-gradient(circle at center,#f2f0ea 0 16%,#111 16.5% 35%,#d9ff55 35.5% 54%,#111 54.5% 100%);
+    }
+
+    .art-4:before{
+      content:"IDENTITY";
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-size:clamp(28px,4vw,58px);
+      letter-spacing:-.05em;
+      font-weight:800;
+      color:#111;
+      mix-blend-mode:difference;
+    }
+
+    .project-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0 10px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .project-title{
+      font-size:17px;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+
+    .project-type{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      text-align:right;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .about-copy{
+      font-size:clamp(28px,4vw,58px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      margin:0;
+    }
+
+    .about-side{
+      display:grid;
+      gap:50px;
+    }
+
+    .about-block{
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+
+    .about-block h3{
+      margin:0 0 20px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+      font-weight:400;
+    }
+
+    .timeline{
+      display:grid;
+      gap:24px;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:20px;
+    }
+
+    .timeline-year{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+
+    .timeline-main strong{
+      display:block;
+      font-size:16px;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+
+    .timeline-main span{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .tool-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      padding:10px 12px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      background:rgba(255,255,255,.18);
+    }
+
+    .contact{
+      padding:120px 0 70px;
+    }
+
+    .contact-top{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:30px;
+      align-items:end;
+      padding-bottom:50px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .contact-title{
+      margin:0;
+      font-size:clamp(70px,12vw,170px);
+      line-height:.8;
+      letter-spacing:-.075em;
+      text-transform:uppercase;
+    }
+
+    .contact-link{
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      background:var(--accent);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      transition:transform .25s ease;
+    }
+
+    .contact-link:hover{transform:rotate(-6deg) scale(1.03)}
+
+    .footer{
+      padding:24px 0 36px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:20px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .footer .center{text-align:center}
+    .footer .right{text-align:right}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:900px){
+      .shell{width:min(calc(100% - 28px),var(--max))}
+      .nav-inner{grid-template-columns:1fr auto}
+      .nav-links{display:none}
+      .nav-meta{display:block}
+      .hero{padding-top:30px}
+      .hero-kicker{display:block}
+      .hero-kicker .right{margin-top:24px}
+      .hero-bottom{grid-template-columns:1fr}
+      .hero-scroll{justify-self:start;text-align:left}
+      .section{padding:76px 0}
+      .section-head{grid-template-columns:1fr;gap:16px}
+      .projects{grid-template-columns:1fr}
+      .discipline{grid-template-columns:55px 1fr}
+      .discipline-tag{display:none}
+      .about-grid{grid-template-columns:1fr;gap:56px}
+      .contact-top{grid-template-columns:1fr}
+      .contact-link{width:130px;height:130px}
+      .footer{grid-template-columns:1fr}
+      .footer .center,.footer .right{text-align:left}
+    }
+
+    @media (max-width:560px){
+      .nav-inner{height:64px}
+      .hero{min-height:calc(100vh - 64px)}
+      .hero-title{font-size:clamp(64px,22vw,110px)}
+      .hero-role{font-size:30px}
+      .timeline-item{grid-template-columns:1fr;gap:5px}
+      .contact-title{font-size:20vw}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        transition-duration:.01ms !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+      }
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Hafidz Aulia Rachman®</a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-meta">Cianjur, Indonesia</div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-kicker">
+        <div>Selected Works / 2021—2026</div>
+        <div class="right">
+          Independent graphic designer working across branding, editorial, social media,
+          poster design and visual communication.
+        </div>
+      </div>
+
+      <h1 class="hero-title">Hafidz<br>Aulia<br>Rachman</h1>
+
+      <div class="hero-bottom">
+        <div class="hero-role">Graphic Designer<br>&amp; Visual Creative</div>
+        <a class="hero-scroll" href="#work">Scroll to explore ↓</a>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">01 / Disciplines</div>
+          <h2 class="section-title">A portfolio built around visual systems, not just single images.</h2>
+        </div>
+
+        <div class="discipline-list reveal">
+          <a class="discipline" href="#selected">
+            <div class="discipline-no">01</div>
+            <div class="discipline-name">Book &amp; Editorial</div>
+            <div class="discipline-tag">Layout / Publication</div>
+          </a>
+          <a class="discipline" href="#selected">
+            <div class="discipline-no">02</div>
+            <div class="discipline-name">Social Media</div>
+            <div class="discipline-tag">Campaign / Feed / Ads</div>
+          </a>
+          <a class="discipline" href="#selected">
+            <div class="discipline-no">03</div>
+            <div class="discipline-name">Poster &amp; Campaign</div>
+            <div class="discipline-tag">Promotional Visuals</div>
+          </a>
+          <a class="discipline" href="#selected">
+            <div class="discipline-no">04</div>
+            <div class="discipline-name">Logo &amp; Branding</div>
+            <div class="discipline-tag">Identity / Brand System</div>
+          </a>
+          <a class="discipline" href="#selected">
+            <div class="discipline-no">05</div>
+            <div class="discipline-name">Video &amp; Motion</div>
+            <div class="discipline-tag">Editing / Motion Content</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selected">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">02 / Selected Work</div>
+          <h2 class="section-title">Project previews.</h2>
+        </div>
+
+        <div class="projects">
+          <article class="project-card reveal">
+            <div class="art">
+              <div class="art-inner art-1"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Editorial System</div>
+              <div class="project-type">Book Layout / 2026</div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="art">
+              <div class="art-inner art-2"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Nona Tiga Putri</div>
+              <div class="project-type">Social Media / Campaign</div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="art">
+              <div class="art-inner art-3"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Campaign Studies</div>
+              <div class="project-type">Poster / Promotion</div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="art">
+              <div class="art-inner art-4"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Identity Explorations</div>
+              <div class="project-type">Logo / Branding</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">03 / About</div>
+          <h2 class="section-title">Design that is clear, engaging and communicative.</h2>
+        </div>
+
+        <div class="about-grid">
+          <p class="about-copy reveal">
+            Hafidz Aulia Rachman is a graphic designer based in Cianjur, Indonesia,
+            working across branding, editorial design, social media and visual communication.
+          </p>
+
+          <div class="about-side">
+            <div class="about-block reveal">
+              <h3>Experience</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-year">2023—Now</div>
+                  <div class="timeline-main">
+                    <strong>CV. Nona Tiga Putri</strong>
+                    <span>Graphic Designer &amp; Content Planner</span>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2021—Now</div>
+                  <div class="timeline-main">
+                    <strong>Gerryaldy Creative Service</strong>
+                    <span>Freelance Graphic Designer</span>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2020—2021</div>
+                  <div class="timeline-main">
+                    <strong>Gradient Studio</strong>
+                    <span>Graphic Designer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-block reveal">
+              <h3>Tools</h3>
+              <div class="tool-list">
+                <span class="pill">Photoshop</span>
+                <span class="pill">Illustrator</span>
+                <span class="pill">InDesign</span>
+                <span class="pill">Premiere Pro</span>
+                <span class="pill">CapCut</span>
+              </div>
+            </div>
+
+            <div class="about-block reveal">
+              <h3>Education</h3>
+              <div class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <div class="timeline-main">
+                  <strong>SMA Negeri 2 Cianjur</strong>
+                  <span>MIPA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="contact-top reveal">
+        <h2 class="contact-title">Let’s<br>Work.</h2>
+        <a class="contact-link" href="mailto:auliarachman3113@gmail.com">Start a<br>project ↗</a>
+      </div>
+
+      <footer class="footer">
+        <div>Hafidz Aulia Rachman © 2026</div>
+        <div class="center">Cianjur / Indonesia</div>
+        <div class="right"><a href="#top">Back to top ↑</a></div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    const items = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
