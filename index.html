@@ -1001,7 +1001,7 @@
           <div class="portfolio-grid video-grid">
 
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01" data-video-ratio="9 / 16" style="--video-ratio:16 / 9" data-display-mode="landscape">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328303/portfolio/cinematic/cinematic-01.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -1273,9 +1273,7 @@
 
       button.addEventListener('click', () => {
         const videoUrl = button.dataset.videoUrl;
-        const ratioText = button.dataset.displayMode === 'landscape'
-          ? '16 / 9'
-          : (button.dataset.videoRatio || '16 / 9');
+        const ratioText = button.dataset.videoRatio || '16 / 9';
         const ratioParts = ratioText.split('/').map(Number);
         const numericRatio = ratioParts.length === 2 && ratioParts[1] ? ratioParts[0] / ratioParts[1] : 16 / 9;
 
