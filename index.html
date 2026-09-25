@@ -626,6 +626,55 @@
       letter-spacing:.06em;
     }
 
+    .image-dialog{
+      width:min(1200px,calc(100% - 28px));
+      max-height:calc(100vh - 28px);
+      padding:0;
+      border:0;
+      background:#101010;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .image-dialog::backdrop{background:rgba(0,0,0,.82)}
+
+    .image-dialog-head{
+      min-height:52px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.16);
+    }
+
+    .image-dialog-close{
+      border:1px solid rgba(255,255,255,.35);
+      background:transparent;
+      color:#fff;
+      padding:8px 10px;
+      cursor:pointer;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+
+    .image-dialog-stage{
+      width:100%;
+      min-height:220px;
+      display:grid;
+      place-items:center;
+      background:#0b0b0b;
+      overflow:auto;
+    }
+
+    .image-dialog-stage img{
+      display:block;
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:calc(100vh - 100px);
+      object-fit:contain;
+    }
+
     .video-dialog{
       width:min(900px,calc(100% - 28px));
       padding:0;
@@ -765,139 +814,79 @@
           <div class="portfolio-grid">
 
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1aZAXyFfvTcuwbyzas0zzWoubxFW6jAcT/view" target="_blank" rel="noopener noreferrer" aria-label="Open 3PK NIKMATNYA">
+            <button class="media-frame image-trigger" type="button" data-image-id="1aZAXyFfvTcuwbyzas0zzWoubxFW6jAcT" aria-label="Preview 3PK NIKMATNYA">
               <img src="https://drive.google.com/thumbnail?id=1aZAXyFfvTcuwbyzas0zzWoubxFW6jAcT&amp;sz=w1600" alt="3PK NIKMATNYA" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">3PK NIKMATNYA</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1Fu83le2afCPZj6gb7mPky_lo3phnbunv/view" target="_blank" rel="noopener noreferrer" aria-label="Open Paper Favo">
+            <button class="media-frame image-trigger" type="button" data-image-id="1Fu83le2afCPZj6gb7mPky_lo3phnbunv" aria-label="Preview Paper Favo">
               <img src="https://drive.google.com/thumbnail?id=1Fu83le2afCPZj6gb7mPky_lo3phnbunv&amp;sz=w1600" alt="Paper Favo" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Paper Favo</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1BmvrCrAF91nh62qDAU6cPrcuYaxIXZ1S/view" target="_blank" rel="noopener noreferrer" aria-label="Open S nya apa">
+            <button class="media-frame image-trigger" type="button" data-image-id="1BmvrCrAF91nh62qDAU6cPrcuYaxIXZ1S" aria-label="Preview S nya apa">
               <img src="https://drive.google.com/thumbnail?id=1BmvrCrAF91nh62qDAU6cPrcuYaxIXZ1S&amp;sz=w1600" alt="S nya apa" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">S nya apa</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1pNkOcvSGaQphRwwNMT3-cAK9mMvj38E4/view" target="_blank" rel="noopener noreferrer" aria-label="Open Varian Mangga">
+            <button class="media-frame image-trigger" type="button" data-image-id="1pNkOcvSGaQphRwwNMT3-cAK9mMvj38E4" aria-label="Preview Varian Mangga">
               <img src="https://drive.google.com/thumbnail?id=1pNkOcvSGaQphRwwNMT3-cAK9mMvj38E4&amp;sz=w1600" alt="Varian Mangga" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Varian Mangga</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1R7Xr6r_XpoFXhD1v6qCnoj8LdFpm6jrV/view" target="_blank" rel="noopener noreferrer" aria-label="Open JAGONYA KRETEK">
+            <button class="media-frame image-trigger" type="button" data-image-id="1R7Xr6r_XpoFXhD1v6qCnoj8LdFpm6jrV" aria-label="Preview JAGONYA KRETEK">
               <img src="https://drive.google.com/thumbnail?id=1R7Xr6r_XpoFXhD1v6qCnoj8LdFpm6jrV&amp;sz=w1600" alt="JAGONYA KRETEK" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">JAGONYA KRETEK</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1ZFfX_4kx5jQz6gykH11D57D6KtpF1ji9/view" target="_blank" rel="noopener noreferrer" aria-label="Open Feed 2">
+            <button class="media-frame image-trigger" type="button" data-image-id="1ZFfX_4kx5jQz6gykH11D57D6KtpF1ji9" aria-label="Preview Feed 2">
               <img src="https://drive.google.com/thumbnail?id=1ZFfX_4kx5jQz6gykH11D57D6KtpF1ji9&amp;sz=w1600" alt="Feed 2" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Feed 2</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1hOzgJEfkuE3qDKOpDfbe96EkCjh8r18Q/view" target="_blank" rel="noopener noreferrer" aria-label="Open Samsoe Series">
+            <button class="media-frame image-trigger" type="button" data-image-id="1hOzgJEfkuE3qDKOpDfbe96EkCjh8r18Q" aria-label="Preview Samsoe Series">
               <img src="https://drive.google.com/thumbnail?id=1hOzgJEfkuE3qDKOpDfbe96EkCjh8r18Q&amp;sz=w1600" alt="Samsoe Series" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Samsoe Series</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1P3AR3ltRpDRTa4scZ9fTqTV1EWW41JCL/view" target="_blank" rel="noopener noreferrer" aria-label="Open REV Katalog 3P Paper">
+            <button class="media-frame image-trigger" type="button" data-image-id="1P3AR3ltRpDRTa4scZ9fTqTV1EWW41JCL" aria-label="Preview REV Katalog 3P Paper">
               <img src="https://drive.google.com/thumbnail?id=1P3AR3ltRpDRTa4scZ9fTqTV1EWW41JCL&amp;sz=w1600" alt="REV Katalog 3P Paper" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">REV Katalog 3P Paper</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1B-dIDk49j4ExgQwnJBPD5TtUZlXlFqGl/view" target="_blank" rel="noopener noreferrer" aria-label="Open The Taste Of Tradition">
+            <button class="media-frame image-trigger" type="button" data-image-id="1B-dIDk49j4ExgQwnJBPD5TtUZlXlFqGl" aria-label="Preview The Taste Of Tradition">
               <img src="https://drive.google.com/thumbnail?id=1B-dIDk49j4ExgQwnJBPD5TtUZlXlFqGl&amp;sz=w1600" alt="The Taste Of Tradition" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">The Taste Of Tradition</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1AFWI4Rlj-ZVw0758pZifrP83uspcS5d9/view" target="_blank" rel="noopener noreferrer" aria-label="Open It's Jago Time">
+            <button class="media-frame image-trigger" type="button" data-image-id="1AFWI4Rlj-ZVw0758pZifrP83uspcS5d9" aria-label="Preview It's Jago Time">
               <img src="https://drive.google.com/thumbnail?id=1AFWI4Rlj-ZVw0758pZifrP83uspcS5d9&amp;sz=w1600" alt="It's Jago Time" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">It's Jago Time</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/180WEFydXZtyk3mwon2EBawbPM44J-XW0/view" target="_blank" rel="noopener noreferrer" aria-label="Open TOT Mewah">
+            <button class="media-frame image-trigger" type="button" data-image-id="180WEFydXZtyk3mwon2EBawbPM44J-XW0" aria-label="Preview TOT Mewah">
               <img src="https://drive.google.com/thumbnail?id=180WEFydXZtyk3mwon2EBawbPM44J-XW0&amp;sz=w1600" alt="TOT Mewah" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">TOT Mewah</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/12N2_snEjJwjq8zCwZZHLx4vftQ45gvEK/view" target="_blank" rel="noopener noreferrer" aria-label="Open Teka Teki Mewah">
+            <button class="media-frame image-trigger" type="button" data-image-id="12N2_snEjJwjq8zCwZZHLx4vftQ45gvEK" aria-label="Preview Teka Teki Mewah">
               <img src="https://drive.google.com/thumbnail?id=12N2_snEjJwjq8zCwZZHLx4vftQ45gvEK&amp;sz=w1600" alt="Teka Teki Mewah" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Teka Teki Mewah</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1WHoKpfubjzyQZndOGcsioaUs15BjnGZI/view" target="_blank" rel="noopener noreferrer" aria-label="Open 5 Rekomen Rev">
+            <button class="media-frame image-trigger" type="button" data-image-id="1WHoKpfubjzyQZndOGcsioaUs15BjnGZI" aria-label="Preview 5 Rekomen Rev">
               <img src="https://drive.google.com/thumbnail?id=1WHoKpfubjzyQZndOGcsioaUs15BjnGZI&amp;sz=w1600" alt="5 Rekomen Rev" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">5 Rekomen Rev</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1Y_IBl4aqr51kvEAV13409YKNrKFPbSAM/view" target="_blank" rel="noopener noreferrer" aria-label="Open Combo Coffee">
+            <button class="media-frame image-trigger" type="button" data-image-id="1Y_IBl4aqr51kvEAV13409YKNrKFPbSAM" aria-label="Preview Combo Coffee">
               <img src="https://drive.google.com/thumbnail?id=1Y_IBl4aqr51kvEAV13409YKNrKFPbSAM&amp;sz=w1600" alt="Combo Coffee" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Combo Coffee</div>
-              
-            </div>
+            </button>
           </article>
           <article class="portfolio-item reveal">
-            <a class="media-frame" href="https://drive.google.com/file/d/1D_uRJhLNwcQLAr_rnNj89kIpklLiHey_/view" target="_blank" rel="noopener noreferrer" aria-label="Open Dari Ladang Ke Lintingan">
+            <button class="media-frame image-trigger" type="button" data-image-id="1D_uRJhLNwcQLAr_rnNj89kIpklLiHey_" aria-label="Preview Dari Ladang Ke Lintingan">
               <img src="https://drive.google.com/thumbnail?id=1D_uRJhLNwcQLAr_rnNj89kIpklLiHey_&amp;sz=w1600" alt="Dari Ladang Ke Lintingan" loading="lazy" decoding="async" />
-            </a>
-            <div class="project-meta">
-              <div class="project-title">Dari Ladang Ke Lintingan</div>
-              
-            </div>
+            </button>
           </article>
           </div>
         </div>
@@ -1126,6 +1115,36 @@
 
     items.forEach((item) => observer.observe(item));
 
+    const imageDialog = document.getElementById('imageDialog');
+    const imageDialogImage = document.getElementById('imageDialogImage');
+    const imageDialogClose = document.getElementById('imageDialogClose');
+
+    document.querySelectorAll('.image-trigger').forEach((button) => {
+      button.addEventListener('click', () => {
+        const imageId = button.dataset.imageId;
+        const thumbnail = button.querySelector('img');
+
+        imageDialogImage.src = `https://drive.google.com/thumbnail?id=${imageId}&sz=w2400`;
+        imageDialogImage.alt = thumbnail?.alt || 'Portfolio artwork';
+        imageDialog.showModal();
+      });
+    });
+
+    const closeImageDialog = () => {
+      imageDialog.close();
+      imageDialogImage.src = '';
+      imageDialogImage.alt = '';
+    };
+
+    imageDialogClose.addEventListener('click', closeImageDialog);
+    imageDialog.addEventListener('click', (event) => {
+      if (event.target === imageDialog) closeImageDialog();
+    });
+    imageDialog.addEventListener('close', () => {
+      imageDialogImage.src = '';
+      imageDialogImage.alt = '';
+    });
+
     const videoDialog = document.getElementById('videoDialog');
     const videoDialogFrame = document.getElementById('videoDialogFrame');
     const videoDialogTitle = document.getElementById('videoDialogTitle');
@@ -1172,6 +1191,15 @@
     });
 
   </script>
+
+  <dialog class="image-dialog" id="imageDialog" aria-label="Portfolio image preview">
+    <div class="image-dialog-head">
+      <button class="image-dialog-close" type="button" id="imageDialogClose">Close</button>
+    </div>
+    <div class="image-dialog-stage">
+      <img id="imageDialogImage" alt="" />
+    </div>
+  </dialog>
 
   <dialog class="video-dialog" id="videoDialog" aria-label="Portfolio video player">
     <div class="video-dialog-head">
