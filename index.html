@@ -522,6 +522,151 @@
       }
       .reveal{opacity:1;transform:none}
     }
+
+    .portfolio-group{
+      padding-top:18px;
+      margin-top:72px;
+      scroll-margin-top:96px;
+    }
+
+    .portfolio-group:first-of-type{margin-top:0}
+
+    .portfolio-group-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      padding-bottom:20px;
+      margin-bottom:22px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .portfolio-group-head h3{
+      margin:8px 0 0;
+      font-size:clamp(28px,4vw,56px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+    }
+
+    .portfolio-count{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      white-space:nowrap;
+    }
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .portfolio-item{min-width:0}
+
+    .media-frame{
+      width:100%;
+      position:relative;
+      display:block;
+      aspect-ratio:1/1;
+      overflow:hidden;
+      border:0;
+      padding:0;
+      background:var(--panel);
+      cursor:pointer;
+      text-align:left;
+    }
+
+    .video-grid .media-frame{aspect-ratio:9/16}
+
+    .media-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .portfolio-item:hover .media-frame img{transform:scale(1.025)}
+
+    .play-badge{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+      background:var(--accent);
+      color:var(--ink);
+      padding:10px 12px;
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .source-file{
+      display:inline-block;
+      margin-top:4px;
+      font-size:10px;
+      text-transform:none;
+      overflow-wrap:anywhere;
+    }
+
+    .video-dialog{
+      width:min(900px,calc(100% - 28px));
+      padding:0;
+      border:0;
+      background:#101010;
+      color:#fff;
+    }
+
+    .video-dialog::backdrop{background:rgba(0,0,0,.78)}
+
+    .video-dialog-head{
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:12px 14px;
+      background:#101010;
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+
+    .video-dialog-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .video-dialog-close{
+      border:1px solid rgba(255,255,255,.35);
+      background:transparent;
+      color:#fff;
+      padding:8px 10px;
+      cursor:pointer;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+
+    .video-dialog iframe{
+      width:100%;
+      aspect-ratio:16/10;
+      display:block;
+      border:0;
+      background:#000;
+    }
+
+    @media (max-width:900px){
+      .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .portfolio-group-head{align-items:start}
+    }
+
+    @media (max-width:560px){
+      .portfolio-grid{grid-template-columns:1fr}
+      .portfolio-group{margin-top:56px}
+      .portfolio-group-head{display:block}
+      .portfolio-count{margin-top:12px}
+    }
+
   </style>
 </head>
 
@@ -545,8 +690,8 @@
       <div class="hero-kicker">
         <div>Selected Works / 2021—2026</div>
         <div class="right">
-          Independent graphic designer working across branding, editorial, social media,
-          poster design and visual communication.
+          Graphic designer and visual creative working across social media design, cinematic short movies,
+          talking-head shortform and visual communication.
         </div>
       </div>
 
@@ -558,93 +703,318 @@
       </div>
     </section>
 
+
     <section class="section" id="work">
       <div class="shell">
         <div class="section-head reveal">
-          <div class="eyebrow">01 / Disciplines</div>
-          <h2 class="section-title">A portfolio built around visual systems, not just single images.</h2>
+          <div class="eyebrow">01 / Portfolio Categories</div>
+          <h2 class="section-title">Selected work, organized by discipline.</h2>
         </div>
 
         <div class="discipline-list reveal">
-          <a class="discipline" href="#selected">
+          <a class="discipline" href="#feed">
             <div class="discipline-no">01</div>
-            <div class="discipline-name">Book &amp; Editorial</div>
-            <div class="discipline-tag">Layout / Publication</div>
+            <div class="discipline-name">Desain Feed</div>
+            <div class="discipline-tag">Social Media / 15 Works</div>
           </a>
-          <a class="discipline" href="#selected">
+          <a class="discipline" href="#cinematic">
             <div class="discipline-no">02</div>
-            <div class="discipline-name">Social Media</div>
-            <div class="discipline-tag">Campaign / Feed / Ads</div>
+            <div class="discipline-name">Cinematic Short Movie</div>
+            <div class="discipline-tag">Video / 5 Works</div>
           </a>
-          <a class="discipline" href="#selected">
+          <a class="discipline" href="#talkinghead">
             <div class="discipline-no">03</div>
-            <div class="discipline-name">Poster &amp; Campaign</div>
-            <div class="discipline-tag">Promotional Visuals</div>
-          </a>
-          <a class="discipline" href="#selected">
-            <div class="discipline-no">04</div>
-            <div class="discipline-name">Logo &amp; Branding</div>
-            <div class="discipline-tag">Identity / Brand System</div>
-          </a>
-          <a class="discipline" href="#selected">
-            <div class="discipline-no">05</div>
-            <div class="discipline-name">Video &amp; Motion</div>
-            <div class="discipline-tag">Editing / Motion Content</div>
+            <div class="discipline-name">Talkinghead Shortform</div>
+            <div class="discipline-tag">Short-form Video / 5 Works</div>
           </a>
         </div>
       </div>
     </section>
+
 
     <section class="section" id="selected">
       <div class="shell">
         <div class="section-head reveal">
-          <div class="eyebrow">02 / Selected Work</div>
-          <h2 class="section-title">Project previews.</h2>
+          <div class="eyebrow">02 / Portfolio Materials</div>
+          <h2 class="section-title">Work pulled from the portfolio archive.</h2>
         </div>
 
-        <div class="projects">
-          <article class="project-card reveal">
-            <div class="art">
-              <div class="art-inner art-1"></div>
+        <div class="portfolio-group" id="feed">
+          <div class="portfolio-group-head reveal">
+            <div>
+              <div class="eyebrow">01 / Desain Feed</div>
+              <h3>Social media &amp; static visual design</h3>
             </div>
-            <div class="project-meta">
-              <div class="project-title">Editorial System</div>
-              <div class="project-type">Book Layout / 2026</div>
-            </div>
-          </article>
+            <div class="portfolio-count">15 Works</div>
+          </div>
+          <div class="portfolio-grid">
 
-          <article class="project-card reveal">
-            <div class="art">
-              <div class="art-inner art-2"></div>
-            </div>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1aZAXyFfvTcuwbyzas0zzWoubxFW6jAcT/view" target="_blank" rel="noopener noreferrer" aria-label="Open 3PK NIKMATNYA">
+              <img src="https://drive.google.com/thumbnail?id=1aZAXyFfvTcuwbyzas0zzWoubxFW6jAcT&amp;sz=w1600" alt="3PK NIKMATNYA" loading="lazy" decoding="async" />
+            </a>
             <div class="project-meta">
-              <div class="project-title">Nona Tiga Putri</div>
-              <div class="project-type">Social Media / Campaign</div>
+              <div class="project-title">3PK NIKMATNYA</div>
+              <div class="project-type">Desain Feed</div>
             </div>
           </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1Fu83le2afCPZj6gb7mPky_lo3phnbunv/view" target="_blank" rel="noopener noreferrer" aria-label="Open Paper Favo">
+              <img src="https://drive.google.com/thumbnail?id=1Fu83le2afCPZj6gb7mPky_lo3phnbunv&amp;sz=w1600" alt="Paper Favo" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Paper Favo</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1BmvrCrAF91nh62qDAU6cPrcuYaxIXZ1S/view" target="_blank" rel="noopener noreferrer" aria-label="Open S nya apa">
+              <img src="https://drive.google.com/thumbnail?id=1BmvrCrAF91nh62qDAU6cPrcuYaxIXZ1S&amp;sz=w1600" alt="S nya apa" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">S nya apa</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1pNkOcvSGaQphRwwNMT3-cAK9mMvj38E4/view" target="_blank" rel="noopener noreferrer" aria-label="Open Varian Mangga">
+              <img src="https://drive.google.com/thumbnail?id=1pNkOcvSGaQphRwwNMT3-cAK9mMvj38E4&amp;sz=w1600" alt="Varian Mangga" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Varian Mangga</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1R7Xr6r_XpoFXhD1v6qCnoj8LdFpm6jrV/view" target="_blank" rel="noopener noreferrer" aria-label="Open JAGONYA KRETEK">
+              <img src="https://drive.google.com/thumbnail?id=1R7Xr6r_XpoFXhD1v6qCnoj8LdFpm6jrV&amp;sz=w1600" alt="JAGONYA KRETEK" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">JAGONYA KRETEK</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1ZFfX_4kx5jQz6gykH11D57D6KtpF1ji9/view" target="_blank" rel="noopener noreferrer" aria-label="Open Feed 2">
+              <img src="https://drive.google.com/thumbnail?id=1ZFfX_4kx5jQz6gykH11D57D6KtpF1ji9&amp;sz=w1600" alt="Feed 2" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Feed 2</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1hOzgJEfkuE3qDKOpDfbe96EkCjh8r18Q/view" target="_blank" rel="noopener noreferrer" aria-label="Open Samsoe Series">
+              <img src="https://drive.google.com/thumbnail?id=1hOzgJEfkuE3qDKOpDfbe96EkCjh8r18Q&amp;sz=w1600" alt="Samsoe Series" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Samsoe Series</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1P3AR3ltRpDRTa4scZ9fTqTV1EWW41JCL/view" target="_blank" rel="noopener noreferrer" aria-label="Open REV Katalog 3P Paper">
+              <img src="https://drive.google.com/thumbnail?id=1P3AR3ltRpDRTa4scZ9fTqTV1EWW41JCL&amp;sz=w1600" alt="REV Katalog 3P Paper" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">REV Katalog 3P Paper</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1B-dIDk49j4ExgQwnJBPD5TtUZlXlFqGl/view" target="_blank" rel="noopener noreferrer" aria-label="Open The Taste Of Tradition">
+              <img src="https://drive.google.com/thumbnail?id=1B-dIDk49j4ExgQwnJBPD5TtUZlXlFqGl&amp;sz=w1600" alt="The Taste Of Tradition" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">The Taste Of Tradition</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1AFWI4Rlj-ZVw0758pZifrP83uspcS5d9/view" target="_blank" rel="noopener noreferrer" aria-label="Open It's Jago Time">
+              <img src="https://drive.google.com/thumbnail?id=1AFWI4Rlj-ZVw0758pZifrP83uspcS5d9&amp;sz=w1600" alt="It's Jago Time" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">It's Jago Time</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/180WEFydXZtyk3mwon2EBawbPM44J-XW0/view" target="_blank" rel="noopener noreferrer" aria-label="Open TOT Mewah">
+              <img src="https://drive.google.com/thumbnail?id=180WEFydXZtyk3mwon2EBawbPM44J-XW0&amp;sz=w1600" alt="TOT Mewah" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">TOT Mewah</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/12N2_snEjJwjq8zCwZZHLx4vftQ45gvEK/view" target="_blank" rel="noopener noreferrer" aria-label="Open Teka Teki Mewah">
+              <img src="https://drive.google.com/thumbnail?id=12N2_snEjJwjq8zCwZZHLx4vftQ45gvEK&amp;sz=w1600" alt="Teka Teki Mewah" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Teka Teki Mewah</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1WHoKpfubjzyQZndOGcsioaUs15BjnGZI/view" target="_blank" rel="noopener noreferrer" aria-label="Open 5 Rekomen Rev">
+              <img src="https://drive.google.com/thumbnail?id=1WHoKpfubjzyQZndOGcsioaUs15BjnGZI&amp;sz=w1600" alt="5 Rekomen Rev" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">5 Rekomen Rev</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1Y_IBl4aqr51kvEAV13409YKNrKFPbSAM/view" target="_blank" rel="noopener noreferrer" aria-label="Open Combo Coffee">
+              <img src="https://drive.google.com/thumbnail?id=1Y_IBl4aqr51kvEAV13409YKNrKFPbSAM&amp;sz=w1600" alt="Combo Coffee" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Combo Coffee</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <a class="media-frame" href="https://drive.google.com/file/d/1D_uRJhLNwcQLAr_rnNj89kIpklLiHey_/view" target="_blank" rel="noopener noreferrer" aria-label="Open Dari Ladang Ke Lintingan">
+              <img src="https://drive.google.com/thumbnail?id=1D_uRJhLNwcQLAr_rnNj89kIpklLiHey_&amp;sz=w1600" alt="Dari Ladang Ke Lintingan" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-meta">
+              <div class="project-title">Dari Ladang Ke Lintingan</div>
+              <div class="project-type">Desain Feed</div>
+            </div>
+          </article>
+          </div>
+        </div>
 
-          <article class="project-card reveal">
-            <div class="art">
-              <div class="art-inner art-3"></div>
+        <div class="portfolio-group" id="cinematic">
+          <div class="portfolio-group-head reveal">
+            <div>
+              <div class="eyebrow">02 / Cinematic Short Movie</div>
+              <h3>Cinematic video work</h3>
             </div>
-            <div class="project-meta">
-              <div class="project-title">Campaign Studies</div>
-              <div class="project-type">Poster / Promotion</div>
-            </div>
-          </article>
+            <div class="portfolio-count">5 Works</div>
+          </div>
+          <div class="portfolio-grid video-grid">
 
-          <article class="project-card reveal">
-            <div class="art">
-              <div class="art-inner art-4"></div>
-            </div>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1zGKv3e3k9gcCoQSAg3csyCT3EBRRmq5S" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01">
+              <img src="https://drive.google.com/thumbnail?id=1zGKv3e3k9gcCoQSAg3csyCT3EBRRmq5S&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
             <div class="project-meta">
-              <div class="project-title">Identity Explorations</div>
-              <div class="project-type">Logo / Branding</div>
+              <div class="project-title">Cinematic Short Movie 01</div>
+              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003204_863.mp4</span></div>
             </div>
           </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1UQwM5aBQyQOPp3zsp4mGKUtMxTd270Gc" data-video-title="Cinematic Short Movie 02" aria-label="Play Cinematic Short Movie 02">
+              <img src="https://drive.google.com/thumbnail?id=1UQwM5aBQyQOPp3zsp4mGKUtMxTd270Gc&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Cinematic Short Movie 02</div>
+              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003141_432.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1Usdw73K5qjz1PmRc8VMZI2sbsJ1cch0s" data-video-title="Cinematic Short Movie 03" aria-label="Play Cinematic Short Movie 03">
+              <img src="https://drive.google.com/thumbnail?id=1Usdw73K5qjz1PmRc8VMZI2sbsJ1cch0s&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Cinematic Short Movie 03</div>
+              <div class="project-type">Cinematic<br><span class="source-file">9539c20ca4998d9d20a76c66408af60c.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1Yx4OY2rR06iUW_K9aYX1jUon16vKRfkL" data-video-title="Cinematic Short Movie 04" aria-label="Play Cinematic Short Movie 04">
+              <img src="https://drive.google.com/thumbnail?id=1Yx4OY2rR06iUW_K9aYX1jUon16vKRfkL&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Cinematic Short Movie 04</div>
+              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003657_013.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="12sKgjLqcJw02IyoluUz4ymBYj3WgaJar" data-video-title="Cinematic Short Movie 05" aria-label="Play Cinematic Short Movie 05">
+              <img src="https://drive.google.com/thumbnail?id=12sKgjLqcJw02IyoluUz4ymBYj3WgaJar&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Cinematic Short Movie 05</div>
+              <div class="project-type">Cinematic<br><span class="source-file">2025-07-03-004140657.mp4</span></div>
+            </div>
+          </article>
+          </div>
+        </div>
+
+        <div class="portfolio-group" id="talkinghead">
+          <div class="portfolio-group-head reveal">
+            <div>
+              <div class="eyebrow">03 / Talkinghead Shortform</div>
+              <h3>Short-form talking-head content</h3>
+            </div>
+            <div class="portfolio-count">5 Works</div>
+          </div>
+          <div class="portfolio-grid video-grid">
+
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1zZggCyHziGGcUZ5e6wO0cZvsMNalUXiD" data-video-title="Talkinghead Shortform 01" aria-label="Play Talkinghead Shortform 01">
+              <img src="https://drive.google.com/thumbnail?id=1zZggCyHziGGcUZ5e6wO0cZvsMNalUXiD&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Talkinghead Shortform 01</div>
+              <div class="project-type">Short-form Video<br><span class="source-file">VID_20260925_003327_328.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1sbPgKLf0S7XK_3-yjUac06rknY_4Xt4B" data-video-title="Talkinghead Shortform 02" aria-label="Play Talkinghead Shortform 02">
+              <img src="https://drive.google.com/thumbnail?id=1sbPgKLf0S7XK_3-yjUac06rknY_4Xt4B&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Talkinghead Shortform 02</div>
+              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-07-215147874.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1D-UJkt0U04TXoFXX7X0ENyTxr8Jjy8g1" data-video-title="Talkinghead Shortform 03" aria-label="Play Talkinghead Shortform 03">
+              <img src="https://drive.google.com/thumbnail?id=1D-UJkt0U04TXoFXX7X0ENyTxr8Jjy8g1&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Talkinghead Shortform 03</div>
+              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-06-165313384.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1WqYzpJJv7eCDA1TUnA-h0v3_fUr40O6B" data-video-title="Talkinghead Shortform 04" aria-label="Play Talkinghead Shortform 04">
+              <img src="https://drive.google.com/thumbnail?id=1WqYzpJJv7eCDA1TUnA-h0v3_fUr40O6B&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Talkinghead Shortform 04</div>
+              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-22-102358315.mp4</span></div>
+            </div>
+          </article>
+          <article class="portfolio-item reveal">
+            <button class="media-frame video-trigger" type="button" data-video-id="1-_2g2mMDuVGNvA4ttxz0Ie0rX_UzFw0o" data-video-title="Talkinghead Shortform 05" aria-label="Play Talkinghead Shortform 05">
+              <img src="https://drive.google.com/thumbnail?id=1-_2g2mMDuVGNvA4ttxz0Ie0rX_UzFw0o&amp;sz=w1200" alt="" loading="lazy" decoding="async" />
+              <span class="play-badge" aria-hidden="true">Play ↗</span>
+            </button>
+            <div class="project-meta">
+              <div class="project-title">Talkinghead Shortform 05</div>
+              <div class="project-type">Short-form Video<br><span class="source-file">lv_0_20250727122428.mp4</span></div>
+            </div>
+          </article>
+          </div>
         </div>
       </div>
     </section>
+
 
     <section class="section" id="about">
       <div class="shell">
@@ -742,6 +1112,43 @@
     }, { threshold: 0.12 });
 
     items.forEach((item) => observer.observe(item));
+
+    const videoDialog = document.getElementById('videoDialog');
+    const videoDialogFrame = document.getElementById('videoDialogFrame');
+    const videoDialogTitle = document.getElementById('videoDialogTitle');
+    const videoDialogClose = document.getElementById('videoDialogClose');
+
+    document.querySelectorAll('.video-trigger').forEach((button) => {
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.videoId;
+        videoDialogTitle.textContent = button.dataset.videoTitle || 'Portfolio video';
+        videoDialogFrame.src = `https://drive.google.com/file/d/${videoId}/preview`;
+        videoDialog.showModal();
+      });
+    });
+
+    const closeVideoDialog = () => {
+      videoDialog.close();
+      videoDialogFrame.src = '';
+    };
+
+    videoDialogClose.addEventListener('click', closeVideoDialog);
+    videoDialog.addEventListener('click', (event) => {
+      if (event.target === videoDialog) closeVideoDialog();
+    });
+    videoDialog.addEventListener('close', () => {
+      videoDialogFrame.src = '';
+    });
+
   </script>
+
+  <dialog class="video-dialog" id="videoDialog" aria-label="Portfolio video player">
+    <div class="video-dialog-head">
+      <div class="video-dialog-title" id="videoDialogTitle">Portfolio video</div>
+      <button class="video-dialog-close" type="button" id="videoDialogClose">Close</button>
+    </div>
+    <iframe id="videoDialogFrame" title="Portfolio video" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </dialog>
+
 </body>
 </html>
