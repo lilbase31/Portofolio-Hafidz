@@ -565,6 +565,22 @@
 
     .portfolio-item{min-width:0}
 
+    .feed-ratio-group + .feed-ratio-group{
+      margin-top:22px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+    }
+
+    .feed-grid-portrait .image-trigger{aspect-ratio:4/5}
+    .feed-grid-square .image-trigger{aspect-ratio:1/1}
+    .feed-grid-tall .image-trigger{aspect-ratio:9/16}
+
+    .feed-grid .image-trigger img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
     .video-grid{
       align-items:start;
     }
@@ -590,6 +606,17 @@
       --video-ratio:1/1;
     }
 
+    #cinematic .video-trigger{
+      --video-ratio:16/9 !important;
+      aspect-ratio:16/9 !important;
+    }
+
+    #cinematic .video-trigger img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
     .media-frame{
       width:100%;
       position:relative;
@@ -612,14 +639,12 @@
     }
 
     .image-trigger{
-      aspect-ratio:auto;
       height:auto;
       background:transparent;
     }
 
     .image-trigger img{
       width:100%;
-      height:auto;
       object-fit:contain;
     }
 
@@ -826,83 +851,143 @@
             </div>
             <div class="portfolio-count">15 Works</div>
           </div>
-          <div class="portfolio-grid">
+
+          <div class="feed-ratio-group" data-ratio="1080x1350">
+            <div class="portfolio-grid feed-grid feed-grid-portrait">
 
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/3pk-nikmatnya.png" aria-label="Preview 3PK NIKMATNYA">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/3pk-nikmatnya.png" alt="3PK NIKMATNYA" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/3pk-nikmatnya.png"
+              aria-label="Preview 3PK NIKMATNYA">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/3pk-nikmatnya.png"
+                alt="3PK NIKMATNYA" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/paper-favo.png" aria-label="Preview Paper Favo">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/paper-favo.png" alt="Paper Favo" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/paper-favo.png"
+              aria-label="Preview Paper Favo">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/paper-favo.png"
+                alt="Paper Favo" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/s-nya-apa.png" aria-label="Preview S nya apa">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/s-nya-apa.png" alt="S nya apa" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/s-nya-apa.png"
+              aria-label="Preview S nya apa">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/s-nya-apa.png"
+                alt="S nya apa" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/varian-mangga.png" aria-label="Preview Varian Mangga">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/varian-mangga.png" alt="Varian Mangga" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/varian-mangga.png"
+              aria-label="Preview Varian Mangga">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/varian-mangga.png"
+                alt="Varian Mangga" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/jagonya-kretek.png" aria-label="Preview JAGONYA KRETEK">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/jagonya-kretek.png" alt="JAGONYA KRETEK" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/jagonya-kretek.png"
+              aria-label="Preview JAGONYA KRETEK">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/jagonya-kretek.png"
+                alt="JAGONYA KRETEK" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/feed-2.png" aria-label="Preview Feed 2">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/feed-2.png" alt="Feed 2" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/5-rekomen-rev.png"
+              aria-label="Preview 5 Rekomen Rev">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/5-rekomen-rev.png"
+                alt="5 Rekomen Rev" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/samsoe-series.png" aria-label="Preview Samsoe Series">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/samsoe-series.png" alt="Samsoe Series" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/combo-coffee.png"
+              aria-label="Preview Combo Coffee">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/combo-coffee.png"
+                alt="Combo Coffee" loading="lazy" decoding="async" />
+            </button>
+          </article>
+            </div>
+          </div>
+
+          <div class="feed-ratio-group" data-ratio="1080x1080">
+            <div class="portfolio-grid feed-grid feed-grid-square">
+
+          <article class="portfolio-item reveal">
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/feed-2.png"
+              aria-label="Preview Feed 2">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/feed-2.png"
+                alt="Feed 2" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/rev-katalog-3p-paper.png" aria-label="Preview REV Katalog 3P Paper">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/rev-katalog-3p-paper.png" alt="REV Katalog 3P Paper" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/samsoe-series.png"
+              aria-label="Preview Samsoe Series">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/samsoe-series.png"
+                alt="Samsoe Series" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/the-taste-of-tradition.png" aria-label="Preview The Taste Of Tradition">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/the-taste-of-tradition.png" alt="The Taste Of Tradition" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/the-taste-of-tradition.png"
+              aria-label="Preview The Taste Of Tradition">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/the-taste-of-tradition.png"
+                alt="The Taste Of Tradition" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/its-jago-time.png" aria-label="Preview It's Jago Time">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/its-jago-time.png" alt="It's Jago Time" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/its-jago-time.png"
+              aria-label="Preview It's Jago Time">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/its-jago-time.png"
+                alt="It's Jago Time" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/tot-mewah.png" aria-label="Preview TOT Mewah">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/tot-mewah.png" alt="TOT Mewah" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/tot-mewah.png"
+              aria-label="Preview TOT Mewah">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/tot-mewah.png"
+                alt="TOT Mewah" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/teka-teki-mewah.png" aria-label="Preview Teka Teki Mewah">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/teka-teki-mewah.png" alt="Teka Teki Mewah" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/teka-teki-mewah.png"
+              aria-label="Preview Teka Teki Mewah">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/teka-teki-mewah.png"
+                alt="Teka Teki Mewah" loading="lazy" decoding="async" />
             </button>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/5-rekomen-rev.png" aria-label="Preview 5 Rekomen Rev">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/5-rekomen-rev.png" alt="5 Rekomen Rev" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/dari-ladang-ke-lintingan.png"
+              aria-label="Preview Dari Ladang Ke Lintingan">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/dari-ladang-ke-lintingan.png"
+                alt="Dari Ladang Ke Lintingan" loading="lazy" decoding="async" />
             </button>
           </article>
+            </div>
+          </div>
+
+          <div class="feed-ratio-group" data-ratio="1080x1920">
+            <div class="portfolio-grid feed-grid feed-grid-tall">
+
           <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/combo-coffee.png" aria-label="Preview Combo Coffee">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/combo-coffee.png" alt="Combo Coffee" loading="lazy" decoding="async" />
+            <button class="media-frame image-trigger" type="button"
+              data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/rev-katalog-3p-paper.png"
+              aria-label="Preview REV Katalog 3P Paper">
+              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/rev-katalog-3p-paper.png"
+                alt="REV Katalog 3P Paper" loading="lazy" decoding="async" />
             </button>
           </article>
-          <article class="portfolio-item reveal">
-            <button class="media-frame image-trigger" type="button" data-image-url="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_2400/f_auto/q_auto:best/portfolio/desain-feed/dari-ladang-ke-lintingan.png" aria-label="Preview Dari Ladang Ke Lintingan">
-              <img src="https://res.cloudinary.com/klbb6kew/image/upload/c_limit,w_1400/f_auto/q_auto/portfolio/desain-feed/dari-ladang-ke-lintingan.png" alt="Dari Ladang Ke Lintingan" loading="lazy" decoding="async" />
-            </button>
-          </article>
+            </div>
           </div>
         </div>
 
@@ -916,8 +1001,8 @@
           <div class="portfolio-grid video-grid">
 
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
-              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328303/portfolio/cinematic/cinematic-01.jpg" alt="" loading="lazy" decoding="async" />
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328303/portfolio/cinematic/cinematic-01.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
             <div class="project-meta">
@@ -926,8 +1011,8 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328327/portfolio/cinematic/cinematic-02.mp4" data-video-title="Cinematic Short Movie 02" aria-label="Play Cinematic Short Movie 02" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
-              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328327/portfolio/cinematic/cinematic-02.jpg" alt="" loading="lazy" decoding="async" />
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328327/portfolio/cinematic/cinematic-02.mp4" data-video-title="Cinematic Short Movie 02" aria-label="Play Cinematic Short Movie 02" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328327/portfolio/cinematic/cinematic-02.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
             <div class="project-meta">
@@ -936,8 +1021,8 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328340/portfolio/cinematic/cinematic-03.mp4" data-video-title="Cinematic Short Movie 03" aria-label="Play Cinematic Short Movie 03" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
-              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328340/portfolio/cinematic/cinematic-03.jpg" alt="" loading="lazy" decoding="async" />
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328340/portfolio/cinematic/cinematic-03.mp4" data-video-title="Cinematic Short Movie 03" aria-label="Play Cinematic Short Movie 03" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328340/portfolio/cinematic/cinematic-03.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
             <div class="project-meta">
@@ -946,8 +1031,8 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328365/portfolio/cinematic/cinematic-04.mp4" data-video-title="Cinematic Short Movie 04" aria-label="Play Cinematic Short Movie 04" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
-              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328365/portfolio/cinematic/cinematic-04.jpg" alt="" loading="lazy" decoding="async" />
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328365/portfolio/cinematic/cinematic-04.mp4" data-video-title="Cinematic Short Movie 04" aria-label="Play Cinematic Short Movie 04" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328365/portfolio/cinematic/cinematic-04.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
             <div class="project-meta">
@@ -956,8 +1041,8 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328377/portfolio/cinematic/cinematic-05.mp4" data-video-title="Cinematic Short Movie 05" aria-label="Play Cinematic Short Movie 05" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
-              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328377/portfolio/cinematic/cinematic-05.jpg" alt="" loading="lazy" decoding="async" />
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328377/portfolio/cinematic/cinematic-05.mp4" data-video-title="Cinematic Short Movie 05" aria-label="Play Cinematic Short Movie 05" data-video-ratio="16 / 9" style="--video-ratio:16 / 9" data-display-mode="landscape">
+              <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_fill,g_auto,h_675,w_1200/f_jpg/q_auto/v1790328377/portfolio/cinematic/cinematic-05.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
             <div class="project-meta">
@@ -1188,7 +1273,9 @@
 
       button.addEventListener('click', () => {
         const videoUrl = button.dataset.videoUrl;
-        const ratioText = button.dataset.videoRatio || '16 / 9';
+        const ratioText = button.dataset.displayMode === 'landscape'
+          ? '16 / 9'
+          : (button.dataset.videoRatio || '16 / 9');
         const ratioParts = ratioText.split('/').map(Number);
         const numericRatio = ratioParts.length === 2 && ratioParts[1] ? ratioParts[0] / ratioParts[1] : 16 / 9;
 
