@@ -611,6 +611,18 @@
       transition:transform .55s cubic-bezier(.2,.8,.2,1);
     }
 
+    .image-trigger{
+      aspect-ratio:auto;
+      height:auto;
+      background:transparent;
+    }
+
+    .image-trigger img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
     .portfolio-item:hover .media-frame img{transform:scale(1.025)}
 
     .play-badge{
@@ -676,7 +688,7 @@
     }
 
     .video-dialog{
-      width:min(900px,calc(100% - 28px));
+      width:min(1100px,calc(100% - 28px));
       padding:0;
       border:0;
       background:#101010;
@@ -714,6 +726,7 @@
 
     .video-dialog video{
       width:100%;
+      height:auto;
       max-height:calc(100vh - 90px);
       aspect-ratio:var(--dialog-ratio,16/9);
       display:block;
@@ -903,7 +916,7 @@
           <div class="portfolio-grid video-grid">
 
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328303/portfolio/cinematic/cinematic-01.mp4" data-video-title="Cinematic Short Movie 01" aria-label="Play Cinematic Short Movie 01" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328303/portfolio/cinematic/cinematic-01.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -913,7 +926,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328327/portfolio/cinematic/cinematic-02.mp4" data-video-title="Cinematic Short Movie 02" aria-label="Play Cinematic Short Movie 02">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328327/portfolio/cinematic/cinematic-02.mp4" data-video-title="Cinematic Short Movie 02" aria-label="Play Cinematic Short Movie 02" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328327/portfolio/cinematic/cinematic-02.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -923,7 +936,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328340/portfolio/cinematic/cinematic-03.mp4" data-video-title="Cinematic Short Movie 03" aria-label="Play Cinematic Short Movie 03">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328340/portfolio/cinematic/cinematic-03.mp4" data-video-title="Cinematic Short Movie 03" aria-label="Play Cinematic Short Movie 03" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328340/portfolio/cinematic/cinematic-03.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -933,7 +946,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328365/portfolio/cinematic/cinematic-04.mp4" data-video-title="Cinematic Short Movie 04" aria-label="Play Cinematic Short Movie 04">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328365/portfolio/cinematic/cinematic-04.mp4" data-video-title="Cinematic Short Movie 04" aria-label="Play Cinematic Short Movie 04" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328365/portfolio/cinematic/cinematic-04.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -943,7 +956,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328377/portfolio/cinematic/cinematic-05.mp4" data-video-title="Cinematic Short Movie 05" aria-label="Play Cinematic Short Movie 05">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328377/portfolio/cinematic/cinematic-05.mp4" data-video-title="Cinematic Short Movie 05" aria-label="Play Cinematic Short Movie 05" data-video-ratio="16 / 9" style="--video-ratio:16 / 9">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328377/portfolio/cinematic/cinematic-05.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -965,7 +978,7 @@
           <div class="portfolio-grid video-grid">
 
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328397/portfolio/talkinghead/talkinghead-01.mp4" data-video-title="Talkinghead Shortform 01" aria-label="Play Talkinghead Shortform 01">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328397/portfolio/talkinghead/talkinghead-01.mp4" data-video-title="Talkinghead Shortform 01" aria-label="Play Talkinghead Shortform 01" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328397/portfolio/talkinghead/talkinghead-01.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -975,7 +988,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328431/portfolio/talkinghead/talkinghead-02.mp4" data-video-title="Talkinghead Shortform 02" aria-label="Play Talkinghead Shortform 02">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328431/portfolio/talkinghead/talkinghead-02.mp4" data-video-title="Talkinghead Shortform 02" aria-label="Play Talkinghead Shortform 02" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328431/portfolio/talkinghead/talkinghead-02.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -985,7 +998,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328800/portfolio/talkinghead/talkinghead-03.mp4" data-video-title="Talkinghead Shortform 03" aria-label="Play Talkinghead Shortform 03">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328800/portfolio/talkinghead/talkinghead-03.mp4" data-video-title="Talkinghead Shortform 03" aria-label="Play Talkinghead Shortform 03" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328800/portfolio/talkinghead/talkinghead-03.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -995,7 +1008,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328695/portfolio/talkinghead/talkinghead-04.mp4" data-video-title="Talkinghead Shortform 04" aria-label="Play Talkinghead Shortform 04">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328695/portfolio/talkinghead/talkinghead-04.mp4" data-video-title="Talkinghead Shortform 04" aria-label="Play Talkinghead Shortform 04" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328695/portfolio/talkinghead/talkinghead-04.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -1005,7 +1018,7 @@
             </div>
           </article>
           <article class="portfolio-item reveal">
-            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328726/portfolio/talkinghead/talkinghead-05.mp4" data-video-title="Talkinghead Shortform 05" aria-label="Play Talkinghead Shortform 05">
+            <button class="media-frame video-trigger" type="button" data-video-url="https://res.cloudinary.com/klbb6kew/video/upload/vc_h264/q_auto/v1790328726/portfolio/talkinghead/talkinghead-05.mp4" data-video-title="Talkinghead Shortform 05" aria-label="Play Talkinghead Shortform 05" data-video-ratio="9 / 16" style="--video-ratio:9 / 16">
               <img src="https://res.cloudinary.com/klbb6kew/video/upload/so_1/c_limit,w_1200/f_jpg/q_auto/v1790328726/portfolio/talkinghead/talkinghead-05.jpg" alt="" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">Play ↗</span>
             </button>
@@ -1104,6 +1117,7 @@
   </main>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver((entries) => {
@@ -1167,14 +1181,25 @@
         button.dataset.videoRatio = `${thumbnail.naturalWidth} / ${thumbnail.naturalHeight}`;
       };
 
-      if (thumbnail.complete) syncVideoRatio();
-      else thumbnail.addEventListener('load', syncVideoRatio, { once:true });
+      if (!button.dataset.videoRatio) {
+        if (thumbnail.complete) syncVideoRatio();
+        else thumbnail.addEventListener('load', syncVideoRatio, { once:true });
+      }
 
       button.addEventListener('click', () => {
         const videoUrl = button.dataset.videoUrl;
+        const ratioText = button.dataset.videoRatio || '16 / 9';
+        const ratioParts = ratioText.split('/').map(Number);
+        const numericRatio = ratioParts.length === 2 && ratioParts[1] ? ratioParts[0] / ratioParts[1] : 16 / 9;
+
         videoDialogTitle.textContent = button.dataset.videoTitle || 'Portfolio video';
-        videoDialog.style.setProperty('--dialog-ratio', button.dataset.videoRatio || '16 / 9');
+        videoDialog.style.setProperty('--dialog-ratio', ratioText);
+        videoDialog.style.width = numericRatio < 1
+          ? 'min(520px, calc(100% - 28px))'
+          : 'min(1100px, calc(100% - 28px))';
+
         videoDialogPlayer.src = videoUrl;
+        videoDialogPlayer.load();
         videoDialog.showModal();
         videoDialogPlayer.play().catch(() => {});
       });
@@ -1195,6 +1220,7 @@
       videoDialogPlayer.pause();
       videoDialogPlayer.removeAttribute('src');
       videoDialogPlayer.load();
+    });
     });
 
   </script>
