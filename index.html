@@ -565,6 +565,31 @@
 
     .portfolio-item{min-width:0}
 
+    .video-grid{
+      align-items:start;
+    }
+
+    .video-grid .media-frame{
+      aspect-ratio:var(--video-ratio,16/9);
+      background:#111;
+    }
+
+    .video-grid .media-frame img{
+      object-fit:cover;
+    }
+
+    .video-grid .media-frame.is-portrait{
+      --video-ratio:9/16;
+    }
+
+    .video-grid .media-frame.is-landscape{
+      --video-ratio:16/9;
+    }
+
+    .video-grid .media-frame.is-square{
+      --video-ratio:1/1;
+    }
+
     .media-frame{
       width:100%;
       position:relative;
@@ -578,7 +603,6 @@
       text-align:left;
     }
 
-    .video-grid .media-frame{aspect-ratio:9/16}
 
     .media-frame img{
       width:100%;
@@ -600,14 +624,6 @@
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:.06em;
-    }
-
-    .source-file{
-      display:inline-block;
-      margin-top:4px;
-      font-size:10px;
-      text-transform:none;
-      overflow-wrap:anywhere;
     }
 
     .video-dialog{
@@ -649,7 +665,7 @@
 
     .video-dialog iframe{
       width:100%;
-      aspect-ratio:16/10;
+      aspect-ratio:var(--dialog-ratio,16/9);
       display:block;
       border:0;
       background:#000;
@@ -743,7 +759,6 @@
           <div class="portfolio-group-head reveal">
             <div>
               <div class="eyebrow">01 / Desain Feed</div>
-              <h3>Social media &amp; static visual design</h3>
             </div>
             <div class="portfolio-count">15 Works</div>
           </div>
@@ -755,7 +770,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">3PK NIKMATNYA</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -764,7 +779,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Paper Favo</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -773,7 +788,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">S nya apa</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -782,7 +797,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Varian Mangga</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -791,7 +806,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">JAGONYA KRETEK</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -800,7 +815,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Feed 2</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -809,7 +824,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Samsoe Series</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -818,7 +833,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">REV Katalog 3P Paper</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -827,7 +842,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">The Taste Of Tradition</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -836,7 +851,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">It's Jago Time</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -845,7 +860,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">TOT Mewah</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -854,7 +869,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Teka Teki Mewah</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -863,7 +878,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">5 Rekomen Rev</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -872,7 +887,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Combo Coffee</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -881,7 +896,7 @@
             </a>
             <div class="project-meta">
               <div class="project-title">Dari Ladang Ke Lintingan</div>
-              <div class="project-type">Desain Feed</div>
+              
             </div>
           </article>
           </div>
@@ -891,7 +906,6 @@
           <div class="portfolio-group-head reveal">
             <div>
               <div class="eyebrow">02 / Cinematic Short Movie</div>
-              <h3>Cinematic video work</h3>
             </div>
             <div class="portfolio-count">5 Works</div>
           </div>
@@ -904,7 +918,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Cinematic Short Movie 01</div>
-              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003204_863.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -914,7 +928,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Cinematic Short Movie 02</div>
-              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003141_432.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -924,7 +938,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Cinematic Short Movie 03</div>
-              <div class="project-type">Cinematic<br><span class="source-file">9539c20ca4998d9d20a76c66408af60c.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -934,7 +948,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Cinematic Short Movie 04</div>
-              <div class="project-type">Cinematic<br><span class="source-file">VID_20260925_003657_013.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -944,7 +958,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Cinematic Short Movie 05</div>
-              <div class="project-type">Cinematic<br><span class="source-file">2025-07-03-004140657.mp4</span></div>
+              
             </div>
           </article>
           </div>
@@ -954,7 +968,6 @@
           <div class="portfolio-group-head reveal">
             <div>
               <div class="eyebrow">03 / Talkinghead Shortform</div>
-              <h3>Short-form talking-head content</h3>
             </div>
             <div class="portfolio-count">5 Works</div>
           </div>
@@ -967,7 +980,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Talkinghead Shortform 01</div>
-              <div class="project-type">Short-form Video<br><span class="source-file">VID_20260925_003327_328.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -977,7 +990,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Talkinghead Shortform 02</div>
-              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-07-215147874.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -987,7 +1000,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Talkinghead Shortform 03</div>
-              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-06-165313384.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -997,7 +1010,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Talkinghead Shortform 04</div>
-              <div class="project-type">Short-form Video<br><span class="source-file">2025-07-22-102358315.mp4</span></div>
+              
             </div>
           </article>
           <article class="portfolio-item reveal">
@@ -1007,7 +1020,7 @@
             </button>
             <div class="project-meta">
               <div class="project-title">Talkinghead Shortform 05</div>
-              <div class="project-type">Short-form Video<br><span class="source-file">lv_0_20250727122428.mp4</span></div>
+              
             </div>
           </article>
           </div>
@@ -1119,9 +1132,27 @@
     const videoDialogClose = document.getElementById('videoDialogClose');
 
     document.querySelectorAll('.video-trigger').forEach((button) => {
+      const thumbnail = button.querySelector('img');
+
+      const syncVideoRatio = () => {
+        if (!thumbnail.naturalWidth || !thumbnail.naturalHeight) return;
+
+        const ratio = thumbnail.naturalWidth / thumbnail.naturalHeight;
+        const orientation = ratio > 1.08 ? 'landscape' : ratio < 0.92 ? 'portrait' : 'square';
+
+        button.classList.remove('is-landscape', 'is-portrait', 'is-square');
+        button.classList.add(`is-${orientation}`);
+        button.style.setProperty('--video-ratio', `${thumbnail.naturalWidth} / ${thumbnail.naturalHeight}`);
+        button.dataset.videoRatio = `${thumbnail.naturalWidth} / ${thumbnail.naturalHeight}`;
+      };
+
+      if (thumbnail.complete) syncVideoRatio();
+      else thumbnail.addEventListener('load', syncVideoRatio, { once:true });
+
       button.addEventListener('click', () => {
         const videoId = button.dataset.videoId;
         videoDialogTitle.textContent = button.dataset.videoTitle || 'Portfolio video';
+        videoDialog.style.setProperty('--dialog-ratio', button.dataset.videoRatio || '16 / 9');
         videoDialogFrame.src = `https://drive.google.com/file/d/${videoId}/preview`;
         videoDialog.showModal();
       });
