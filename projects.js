@@ -250,6 +250,32 @@ window.PORTFOLIO = {
       "width": 1080,
       "height": 1350,
       "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png"
+    },
+    {
+      "id": "youtube/IBXJGuySfq4",
+      "title": "VIDEO DOKUMENTER",
+      "type": "video",
+      "provider": "youtube",
+      "youtubeId": "IBXJGuySfq4",
+      "category": "video",
+      "tag": "DOKUMENTER",
+      "src": "https://www.youtube.com/watch?v=IBXJGuySfq4",
+      "thumbnail": "https://i.ytimg.com/vi/IBXJGuySfq4/hqdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "id": "youtube/LRmsrFJLTvc",
+      "title": "PODCAST VIDEO",
+      "type": "video",
+      "provider": "youtube",
+      "youtubeId": "LRmsrFJLTvc",
+      "category": "video",
+      "tag": "PODCAST",
+      "src": "https://www.youtube.com/watch?v=LRmsrFJLTvc",
+      "thumbnail": "https://i.ytimg.com/vi/LRmsrFJLTvc/hqdefault.jpg",
+      "width": 1280,
+      "height": 720
     }
   ]
 };

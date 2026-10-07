@@ -12,7 +12,7 @@
   const navigation = document.querySelector('#navigation');
   let filter = 'all', limit = 8, opener, closeTimer;
   // A deliberate mix of landscape film, design and vertical editing in the first view.
-  const preferred = ['cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
+  const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
   const projects = [...data.projects].sort((a,b) => rank(a) - rank(b));
   const label = p => p.type === 'video' ? 'Video Editing' : 'Desain Grafis';
@@ -38,7 +38,7 @@
       infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);
       if(p.type === 'video') {
         const play=document.createElement('span'); play.className='play'; play.textContent='▶'; play.setAttribute('aria-hidden','true');
-        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.height>p.width?'SHORT FORM':'CINEMATIC';
+        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.tag || (p.height>p.width?'SHORT FORM':'CINEMATIC');
         card.append(play,tag);
       }
       card.addEventListener('click',()=>openProject(p,card)); grid.append(card);
@@ -52,15 +52,30 @@
     document.querySelector('#dialog-title').textContent=p.title;
     document.querySelector('#dialog-category').textContent=label(p);
     document.querySelector('#dialog-format').textContent=p.height>p.width?'PORTRAIT':p.height===p.width?'SQUARE':'LANDSCAPE';
-    error.hidden=true; media.replaceChildren();
+    error.hidden=true; document.querySelector('#youtube-fallback').hidden=true; media.replaceChildren();
+    if (p.provider === 'youtube') {
+      const frame = document.createElement('iframe');
+      frame.className = 'youtube-player';
+      frame.title = p.title;
+      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(p.youtubeId)}?playsinline=1&rel=0`;
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      media.append(frame);
+      const fallback = document.querySelector('#youtube-fallback');
+      fallback.href = p.src;
+      fallback.hidden = false;
+    } else {
     const asset=document.createElement(p.type==='video'?'video':'img');
     if(p.type==='video') {asset.controls=true; asset.playsInline=true; asset.preload='metadata'; asset.poster=p.thumbnail; asset.setAttribute('aria-label',p.title);}
     else asset.alt=p.title;
     asset.addEventListener('error',()=>{error.hidden=false;}); asset.src=p.src; media.append(asset);
+    }
     document.body.classList.add('modal-open'); dialog.showModal(); document.querySelector('#close-dialog').focus();
   }
   function closeProject() {
     const video=media.querySelector('video'); if(video) video.pause();
+    media.querySelector('iframe')?.remove();
     if(!dialog.open||dialog.classList.contains('closing')) return;
     dialog.classList.add('closing');
     closeTimer=setTimeout(()=>dialog.close(),reduced.matches?0:170);
@@ -81,5 +96,8 @@
   function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=scrollY;document.querySelector('.header').classList.toggle('scrolled',y>20);const active=!reduced.matches&&innerWidth>650;document.querySelector('.hero-word').style.transform=active?`translateY(${Math.min(y*.09,42)}px)`:'none';document.querySelector('.portrait-wrap').style.translate=active?`0 ${Math.min(y*.035,20)}px`:'none';ticking=false;});}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);reduced.addEventListener('change',onScroll);
   document.querySelector('#year').textContent=new Date().getFullYear();
+  document.querySelectorAll('[data-filter]').forEach(button => {
+    button.querySelector('small').textContent = String(projects.filter(p => button.dataset.filter === 'all' || p.category === button.dataset.filter).length);
+  });
   render();onScroll();
 })();

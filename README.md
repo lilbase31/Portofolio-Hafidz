@@ -6,7 +6,7 @@ Static portfolio for graphic design and video editing. Open `index.html` through
 - `index.html`: page sections and accessible project dialog.
 - `styles.css`: responsive dark/burgundy design, portrait silhouette, transitions and reduced-motion support.
 - `app.js`: category filters, pagination, project previews, video cleanup, mobile navigation and scroll effects.
-- `projects.js`: 25 existing portfolio assets from the connected Cloudinary account (15 designs, 10 videos).
+- `projects.js`: 27 portfolio assets: 15 designs and 10 videos from Cloudinary, plus 2 YouTube videos.
 - `assets/hafidz-burgundy.webp`: optimized portrait.
 
 ## Updating work
@@ -19,3 +19,6 @@ Serve this directory as a static site, for example with GitHub Pages (main branc
 
 ## Verification
 JavaScript syntax and local file/anchor references were checked. Browser QA was blocked by the browser's inability to reach the local preview server; mobile layout and actual video playback should be visually reviewed on the hosted site.
+
+## YouTube projects
+Use `type: "video"`, `category: "video"`, `provider: "youtube"`, an 11-character `youtubeId`, and a public watch URL in `src`. Thumbnails appear in the grid; the privacy-enhanced iframe is created on click and removed when the preview closes. A YouTube fallback link remains available if embedding is restricted. Category counts are calculated from the data. Actual playback depends on YouTube availability and the owner allowing embedding.
