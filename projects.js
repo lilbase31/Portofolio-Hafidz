@@ -1,0 +1,255 @@
+window.PORTFOLIO = {
+  "email": "auliarachman3113@gmail.com",
+  "projects": [
+    {
+      "id": "portfolio/talkinghead/talkinghead-03",
+      "title": "Talkinghead Shortform 03",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328800/portfolio/talkinghead/talkinghead-03.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328800/portfolio/talkinghead/talkinghead-03.jpg"
+    },
+    {
+      "id": "portfolio/talkinghead/talkinghead-05",
+      "title": "Talkinghead Shortform 05",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328726/portfolio/talkinghead/talkinghead-05.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328726/portfolio/talkinghead/talkinghead-05.jpg"
+    },
+    {
+      "id": "portfolio/talkinghead/talkinghead-04",
+      "title": "Talkinghead Shortform 04",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328695/portfolio/talkinghead/talkinghead-04.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328695/portfolio/talkinghead/talkinghead-04.jpg"
+    },
+    {
+      "id": "portfolio/talkinghead/talkinghead-02",
+      "title": "Talkinghead Shortform 02",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328431/portfolio/talkinghead/talkinghead-02.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328431/portfolio/talkinghead/talkinghead-02.jpg"
+    },
+    {
+      "id": "portfolio/talkinghead/talkinghead-01",
+      "title": "Talkinghead Shortform 01",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328397/portfolio/talkinghead/talkinghead-01.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328397/portfolio/talkinghead/talkinghead-01.jpg"
+    },
+    {
+      "id": "portfolio/cinematic/cinematic-05",
+      "title": "Cinematic Short Movie 05",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328377/portfolio/cinematic/cinematic-05.mp4",
+      "width": 1920,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328377/portfolio/cinematic/cinematic-05.jpg"
+    },
+    {
+      "id": "portfolio/cinematic/cinematic-04",
+      "title": "Cinematic Short Movie 04",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328365/portfolio/cinematic/cinematic-04.mp4",
+      "width": 1280,
+      "height": 720,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328365/portfolio/cinematic/cinematic-04.jpg"
+    },
+    {
+      "id": "portfolio/cinematic/cinematic-03",
+      "title": "Cinematic Short Movie 03",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328340/portfolio/cinematic/cinematic-03.mp4",
+      "width": 1024,
+      "height": 576,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328340/portfolio/cinematic/cinematic-03.jpg"
+    },
+    {
+      "id": "portfolio/cinematic/cinematic-02",
+      "title": "Cinematic Short Movie 02",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328327/portfolio/cinematic/cinematic-02.mp4",
+      "width": 1280,
+      "height": 720,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328327/portfolio/cinematic/cinematic-02.jpg"
+    },
+    {
+      "id": "portfolio/cinematic/cinematic-01",
+      "title": "Cinematic Short Movie 01",
+      "type": "video",
+      "category": "video",
+      "src": "https://res.cloudinary.com/klbb6kew/video/upload/v1790328303/portfolio/cinematic/cinematic-01.mp4",
+      "width": 720,
+      "height": 1280,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/video/upload/so_1,w_900,q_auto/v1790328303/portfolio/cinematic/cinematic-01.jpg"
+    },
+    {
+      "id": "portfolio/desain-feed/dari-ladang-ke-lintingan",
+      "title": "Dari Ladang Ke Lintingan",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328276/portfolio/desain-feed/dari-ladang-ke-lintingan.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328276/portfolio/desain-feed/dari-ladang-ke-lintingan.png"
+    },
+    {
+      "id": "portfolio/desain-feed/combo-coffee",
+      "title": "Combo Coffee",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328265/portfolio/desain-feed/combo-coffee.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328265/portfolio/desain-feed/combo-coffee.png"
+    },
+    {
+      "id": "portfolio/desain-feed/5-rekomen-rev",
+      "title": "5 Rekomen Rev",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328254/portfolio/desain-feed/5-rekomen-rev.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328254/portfolio/desain-feed/5-rekomen-rev.png"
+    },
+    {
+      "id": "portfolio/desain-feed/teka-teki-mewah",
+      "title": "Teka Teki Mewah",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328239/portfolio/desain-feed/teka-teki-mewah.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328239/portfolio/desain-feed/teka-teki-mewah.png"
+    },
+    {
+      "id": "portfolio/desain-feed/tot-mewah",
+      "title": "TOT Mewah",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328220/portfolio/desain-feed/tot-mewah.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328220/portfolio/desain-feed/tot-mewah.png"
+    },
+    {
+      "id": "portfolio/desain-feed/its-jago-time",
+      "title": "It's Jago Time",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328212/portfolio/desain-feed/its-jago-time.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328212/portfolio/desain-feed/its-jago-time.png"
+    },
+    {
+      "id": "portfolio/desain-feed/the-taste-of-tradition",
+      "title": "The Taste Of Tradition",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328201/portfolio/desain-feed/the-taste-of-tradition.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328201/portfolio/desain-feed/the-taste-of-tradition.png"
+    },
+    {
+      "id": "portfolio/desain-feed/rev-katalog-3p-paper",
+      "title": "REV Katalog 3P Paper",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328192/portfolio/desain-feed/rev-katalog-3p-paper.png",
+      "width": 1080,
+      "height": 1920,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328192/portfolio/desain-feed/rev-katalog-3p-paper.png"
+    },
+    {
+      "id": "portfolio/desain-feed/samsoe-series",
+      "title": "Samsoe Series",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328179/portfolio/desain-feed/samsoe-series.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328179/portfolio/desain-feed/samsoe-series.png"
+    },
+    {
+      "id": "portfolio/desain-feed/feed-2",
+      "title": "Feed 2",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328169/portfolio/desain-feed/feed-2.png",
+      "width": 1080,
+      "height": 1080,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328169/portfolio/desain-feed/feed-2.png"
+    },
+    {
+      "id": "portfolio/desain-feed/jagonya-kretek",
+      "title": "JAGONYA KRETEK",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328160/portfolio/desain-feed/jagonya-kretek.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328160/portfolio/desain-feed/jagonya-kretek.png"
+    },
+    {
+      "id": "portfolio/desain-feed/paper-favo",
+      "title": "Paper Favo",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328151/portfolio/desain-feed/paper-favo.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328151/portfolio/desain-feed/paper-favo.png"
+    },
+    {
+      "id": "portfolio/desain-feed/varian-mangga",
+      "title": "Varian Mangga",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328137/portfolio/desain-feed/varian-mangga.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328137/portfolio/desain-feed/varian-mangga.png"
+    },
+    {
+      "id": "portfolio/desain-feed/s-nya-apa",
+      "title": "S nya apa",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328126/portfolio/desain-feed/s-nya-apa.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328126/portfolio/desain-feed/s-nya-apa.png"
+    },
+    {
+      "id": "portfolio/desain-feed/3pk-nikmatnya",
+      "title": "3PK NIKMATNYA",
+      "type": "image",
+      "category": "design",
+      "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png",
+      "width": 1080,
+      "height": 1350,
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png"
+    }
+  ]
+};
