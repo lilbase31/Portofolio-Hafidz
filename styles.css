@@ -11,7 +11,7 @@
 /* A continuous burgundy and midnight-black canvas, shared by every page section. */
 @font-face{font-family:Anton;src:url('assets/fonts/anton.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
 body{position:relative;isolation:isolate;background-color:#080b12;background-image:radial-gradient(ellipse 95% 850px at 12% 0%,#51172d 0%,#3e1025 30%,#260d1c 59%,transparent 100%),radial-gradient(ellipse 80% 1050px at 100% 160px,#3c1026 0%,#210b18 50%,transparent 100%),radial-gradient(ellipse 90% 1700px at 0% 56%,#48132670 0%,transparent 75%),radial-gradient(ellipse 85% 1300px at 100% 86%,#56182b40 0%,transparent 80%),linear-gradient(180deg,#170d17 0px,#100c14 740px,#080b12 1250px,#090c13 58%,#120c16 85%,#080b12 100%);background-repeat:no-repeat}
-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.43;mix-blend-mode:soft-light}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.22;mix-blend-mode:soft-light}
 .header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .header.scrolled{background:#0a0c14e8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:#e2b4c31f}
 .hero{position:relative;isolation:isolate}
@@ -26,10 +26,11 @@ footer{border-color:#dfb8c522}
 .hero-word text{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:300px;font-weight:400;letter-spacing:-13px}
 .hero-intro,.hero-note{top:64%;text-shadow:0 2px 20px #160911aa}
 @media(max-width:1000px){.word-wrap{top:5%;height:54%}.hero-intro,.hero-note{top:65%}}
-@media(max-width:650px){body{background-image:radial-gradient(ellipse 140% 680px at 0% 0%,#51172d 0%,#381027 35%,transparent 100%),radial-gradient(ellipse 110% 850px at 100% 190px,#280c1d 0%,transparent 85%),radial-gradient(ellipse 160% 1500px at 0% 60%,#48132660,transparent 80%),linear-gradient(180deg,#170d17 0px,#0a0c14 580px,#080b12 980px,#0c0c15 75%,#080b12 100%)}body::before{opacity:.36}.word-wrap{top:14px;height:215px}.hero-word{font-size:300px;letter-spacing:0}.hero-word text{letter-spacing:-15px}.hero-intro{top:auto;bottom:22px}.hero-note{top:auto;bottom:24px}nav{background:#080b12f5}}
+@media(max-width:650px){body{background-image:radial-gradient(ellipse 140% 680px at 0% 0%,#51172d 0%,#381027 35%,transparent 100%),radial-gradient(ellipse 110% 850px at 100% 190px,#280c1d 0%,transparent 85%),radial-gradient(ellipse 160% 1500px at 0% 60%,#48132660,transparent 80%),linear-gradient(180deg,#170d17 0px,#0a0c14 580px,#080b12 980px,#0c0c15 75%,#080b12 100%)}body::before{opacity:.18}.word-wrap{top:14px;height:215px}.hero-word{font-size:300px;letter-spacing:0}.hero-word text{letter-spacing:-15px}.hero-intro{top:auto;bottom:22px}.hero-note{top:auto;bottom:24px}nav{background:#080b12f5}}
 
 /* Handwritten accent above the condensed portfolio lettering. */
 @font-face{font-family:'Allura Creative';src:url('assets/fonts/allura-creative.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
 .creative-script{position:absolute;top:0;left:50%;z-index:3;display:block;font-family:'Allura Creative','Brush Script MT',cursive;font-size:clamp(50px,5.5vw,78px);font-weight:400;line-height:1.15;color:#f0dedf;transform:translateX(-50%) rotate(-7deg);text-shadow:0 2px 18px #12071066;pointer-events:none}
 @media(max-width:1000px){.creative-script{top:7px;font-size:64px}}
 @media(max-width:650px){.creative-script{top:7px;font-size:48px}}
+
