@@ -138,3 +138,17 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .about-seated img{mask-image:none;-webkit-mask-image:none}
 @media(max-width:1000px) and (min-width:651px){.about-title-column{min-height:540px}.about-seated{right:-25px;top:65px;width:92%}}
 @media(max-width:650px){.about-grid{gap:30px}.about-title-column{min-height:540px}.about-seated{top:85px;right:0;width:78%;max-width:290px}.portfolio-chapter .about::after{bottom:-280px;height:700px;width:100%}}
+
+/* Greeting in the open space above the About Me description. */
+@font-face{font-family:Poppins;src:url('assets/fonts/poppins-medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Allura Signature';src:url('assets/fonts/allura-signature.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+.about .section-top .eyebrow{color:#a99d9b;text-transform:uppercase;font-weight:500}
+.about-copy{align-self:start;padding-top:8px}
+.about-greeting{margin:0 0 34px;line-height:1.4;font-weight:400;display:flex;align-items:baseline;column-gap:16px;row-gap:0;flex-wrap:wrap}
+.greeting-intro{font-family:Poppins,Arial,sans-serif;font-size:20px;font-weight:500;white-space:nowrap}
+.greeting-name{font-family:'Allura Signature','Brush Script MT',cursive;font-size:clamp(42px,4.2vw,62px);font-weight:400;line-height:1.25;color:#fdfae3}
+.about-seated img{mask-image:linear-gradient(#000 75%,transparent 100%);-webkit-mask-image:linear-gradient(#000 75%,transparent 100%)}
+@media(max-width:650px){.about-copy{padding-top:0}.about-greeting{gap:4px 12px;margin-bottom:24px}.greeting-intro{font-size:16px}.greeting-name{font-size:42px}}
+
+.about-copy>p{font-size:17px;line-height:1.9;font-weight:300;margin:0 0 38px}
+@media(max-width:650px){.about-copy>p{font-size:14px}}
