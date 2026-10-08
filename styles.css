@@ -125,3 +125,16 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .software-card span{font-size:10px}
 .software-list{gap:20px}
 @media(max-width:650px){.about-copy>p:first-child{font-size:14px;line-height:1.9}.about-grid{gap:28px}.about-seated{width:min(100%,320px);margin-top:0}.software-card{padding:7px 0;gap:10px}.software-card img{width:30px;height:30px}.software-list{gap:14px}.software-card span{font-size:9px}}
+
+/* Portrait overlaps the right edge of the title; one glow spans both sections. */
+.portfolio-chapter{position:relative;isolation:isolate}
+.portfolio-chapter .about{position:relative}
+.portfolio-chapter .about::after{content:"";position:absolute;right:0;bottom:-350px;width:min(90vw,1300px);height:850px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 100% 50%,#65132e 0%,#360b18 32%,#17050b70 58%,transparent 78%)}
+.about-grid{align-items:center}
+.about-title-column{position:relative;min-height:650px;isolation:isolate}
+#about-heading{position:relative;z-index:0}
+.about-seated{position:absolute;z-index:1;top:65px;right:-45px;width:85%;max-width:400px;margin:0;pointer-events:none}
+.about-seated::before{inset:25% -5% 0;background:radial-gradient(ellipse at 50% 55%,#65152e50,transparent 72%)}
+.about-seated img{mask-image:none;-webkit-mask-image:none}
+@media(max-width:1000px) and (min-width:651px){.about-title-column{min-height:540px}.about-seated{right:-25px;top:65px;width:92%}}
+@media(max-width:650px){.about-grid{gap:30px}.about-title-column{min-height:540px}.about-seated{top:85px;right:0;width:78%;max-width:290px}.portfolio-chapter .about::after{bottom:-280px;height:700px;width:100%}}
