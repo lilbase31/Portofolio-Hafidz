@@ -10,8 +10,8 @@
 
 /* A continuous wine/burgundy canvas, shared by every page section. */
 @font-face{font-family:Anton;src:url('assets/fonts/anton.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
-body{position:relative;isolation:isolate;background-color:#0c080e;background-image:radial-gradient(ellipse 95% 850px at 12% 0%,#a6405c 0%,#78263f 30%,#441327 59%,transparent 100%),radial-gradient(ellipse 80% 1050px at 100% 160px,#74223f 0%,#381125 50%,transparent 100%),radial-gradient(ellipse 90% 1700px at 0% 56%,#38112290 0%,transparent 75%),radial-gradient(ellipse 85% 1300px at 100% 86%,#5d203850 0%,transparent 80%),linear-gradient(180deg,#3c1428 0px,#180b17 740px,#0c080e 1250px,#120a14 58%,#21101e 85%,#100910 100%);background-repeat:no-repeat}
-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.24;mix-blend-mode:soft-light}
+body{position:relative;isolation:isolate;background-color:#0c080e;background-image:radial-gradient(ellipse 95% 850px at 12% 0%,#51172d 0%,#3e1025 30%,#260d1c 59%,transparent 100%),radial-gradient(ellipse 80% 1050px at 100% 160px,#3c1026 0%,#210b18 50%,transparent 100%),radial-gradient(ellipse 90% 1700px at 0% 56%,#38112290 0%,transparent 75%),radial-gradient(ellipse 85% 1300px at 100% 86%,#5d203850 0%,transparent 80%),linear-gradient(180deg,#210d1c 0px,#180b17 740px,#0c080e 1250px,#120a14 58%,#21101e 85%,#100910 100%);background-repeat:no-repeat}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.43;mix-blend-mode:soft-light}
 .header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .header.scrolled{background:#1b0c19e8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:#e2b4c31f}
 .hero{position:relative;isolation:isolate}
@@ -26,4 +26,10 @@ footer{border-color:#dfb8c522}
 .hero-word text{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:300px;font-weight:400;letter-spacing:-13px}
 .hero-intro,.hero-note{top:64%;text-shadow:0 2px 20px #160911aa}
 @media(max-width:1000px){.word-wrap{top:5%;height:54%}.hero-intro,.hero-note{top:65%}}
-@media(max-width:650px){body{background-image:radial-gradient(ellipse 140% 680px at 0% 0%,#a6405c 0%,#73253f 35%,transparent 100%),radial-gradient(ellipse 110% 850px at 100% 190px,#50192f 0%,transparent 85%),radial-gradient(ellipse 160% 1500px at 0% 60%,#3d142870,transparent 80%),linear-gradient(180deg,#42162b 0px,#1b0c19 580px,#0c080e 980px,#180d19 75%,#100910 100%)}body::before{opacity:.21}.word-wrap{top:14px;height:215px}.hero-word{font-size:300px;letter-spacing:0}.hero-word text{letter-spacing:-15px}.hero-intro{top:auto;bottom:22px}.hero-note{top:auto;bottom:24px}nav{background:#251020f5}}
+@media(max-width:650px){body{background-image:radial-gradient(ellipse 140% 680px at 0% 0%,#51172d 0%,#381027 35%,transparent 100%),radial-gradient(ellipse 110% 850px at 100% 190px,#280c1d 0%,transparent 85%),radial-gradient(ellipse 160% 1500px at 0% 60%,#3d142870,transparent 80%),linear-gradient(180deg,#230d1d 0px,#1b0c19 580px,#0c080e 980px,#180d19 75%,#100910 100%)}body::before{opacity:.36}.word-wrap{top:14px;height:215px}.hero-word{font-size:300px;letter-spacing:0}.hero-word text{letter-spacing:-15px}.hero-intro{top:auto;bottom:22px}.hero-note{top:auto;bottom:24px}nav{background:#251020f5}}
+
+/* Handwritten accent above the condensed portfolio lettering. */
+@font-face{font-family:'Allura Creative';src:url('assets/fonts/allura-creative.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+.creative-script{position:absolute;top:0;left:50%;z-index:3;display:block;font-family:'Allura Creative','Brush Script MT',cursive;font-size:clamp(50px,5.5vw,78px);font-weight:400;line-height:1.15;color:#f0dedf;transform:translateX(-50%) rotate(-7deg);text-shadow:0 2px 18px #12071066;pointer-events:none}
+@media(max-width:1000px){.creative-script{top:7px;font-size:64px}}
+@media(max-width:650px){.creative-script{top:7px;font-size:48px}}
