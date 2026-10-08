@@ -7,3 +7,17 @@
 
 /* YouTube is mounted only after a project is opened. */
 #dialog-media .youtube-player{display:block;width:100%;aspect-ratio:16/9;min-height:200px;max-height:68dvh;border:0;background:#090909}.youtube-fallback{display:inline-block;margin-top:16px;font-size:12px;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
+
+/* Editorial hero: condensed display lettering over a textured burgundy field. */
+@font-face{font-family:Anton;src:url('assets/fonts/anton.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+.hero{position:relative;isolation:isolate}
+.hero::before,.hero::after{content:"";position:absolute;top:-82px;bottom:0;left:calc((100% - 100vw)/2);width:100vw;pointer-events:none;z-index:-2}
+.hero::before{background:radial-gradient(ellipse at 14% 42%,#77263d9c 0%,transparent 55%),radial-gradient(ellipse at 88% 28%,#51203780 0%,transparent 49%),radial-gradient(ellipse at 56% 68%,#2e151f9e 0%,transparent 58%),linear-gradient(135deg,#100c11,#170e16 45%,#090a0c);mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%)}
+.hero::after{z-index:-1;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.2;mix-blend-mode:soft-light;mask-image:linear-gradient(#000, #000 75%,transparent);-webkit-mask-image:linear-gradient(#000, #000 75%,transparent)}
+.hero-top,.hero-bottom{position:relative;z-index:2}
+.word-wrap{top:13%;height:46%;z-index:0}
+.hero-word{display:block;width:100%;height:100%;overflow:visible;font-size:300px;line-height:1;font-weight:400;letter-spacing:0;color:inherit}
+.hero-word text{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:300px;font-weight:400;letter-spacing:0}
+.hero-intro,.hero-note{text-shadow:0 2px 18px #0b0b0c80}
+@media(max-width:1000px){.word-wrap{top:14%;height:43%}}
+@media(max-width:650px){.hero::before,.hero::after{top:-70px}.word-wrap{top:28px;height:155px}.hero-word{font-size:300px;letter-spacing:0}.hero::before{background:radial-gradient(ellipse at 8% 32%,#77263d9c,transparent 65%),radial-gradient(ellipse at 95% 44%,#51203780,transparent 60%),linear-gradient(140deg,#130d12,#090a0c)}.hero::after{opacity:.16}}
