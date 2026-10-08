@@ -109,3 +109,19 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .software-card span{font-size:11px;line-height:1.5;color:#e8e2df}
 @media(max-width:1000px){.hero-roles{max-width:230px}.hero-social{width:220px}}
 @media(max-width:650px){.hero-roles{max-width:170px;font-size:10px!important}.hero-social{width:104px;max-width:34%;bottom:32px}.social-icons{gap:10px}.social-icons .social-link{width:44px;height:44px}.social-heading{margin-bottom:12px}.about-grid{grid-template-columns:1fr;gap:12px}.about-copy>p:first-child{font-size:17px;margin-bottom:30px}.software-list{gap:9px}.software-card{padding:16px 10px;gap:12px}.software-card img{width:42px;height:42px}.software-card span{font-size:10px}.software-group h3{font-size:12px}}
+
+/* About Me: high-angle seated portrait, light copy and compact tool icons. */
+@font-face{font-family:Poppins;src:url('assets/fonts/poppins-light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap}
+#about-heading span{color:#800020}
+.about-copy{font-family:Poppins,Arial,sans-serif;font-weight:300}
+.about-copy>p:first-child{font-weight:300;font-size:17px;line-height:1.9}
+.software-group h3,.software-card span{font-weight:300}
+.about-title-column{min-width:0}
+.about-seated{position:relative;isolation:isolate;margin:5px 0 0;width:100%;max-width:480px}
+.about-seated::before{content:"";position:absolute;inset:15% -10% 3%;z-index:-1;background:radial-gradient(ellipse at 50% 55%,#65152e80,transparent 70%)}
+.about-seated img{width:100%;height:auto;display:block;mask-image:linear-gradient(#000 90%,transparent 100%);-webkit-mask-image:linear-gradient(#000 90%,transparent 100%)}
+.software-card{padding:7px 0;background:none;border:0;border-radius:0;gap:12px}
+.software-card img{width:34px;height:34px;filter:drop-shadow(0 7px 13px #80002070) drop-shadow(0 3px 5px #000)}
+.software-card span{font-size:10px}
+.software-list{gap:20px}
+@media(max-width:650px){.about-copy>p:first-child{font-size:14px;line-height:1.9}.about-grid{gap:28px}.about-seated{width:min(100%,320px);margin-top:0}.software-card{padding:7px 0;gap:10px}.software-card img{width:30px;height:30px}.software-list{gap:14px}.software-card span{font-size:9px}}
