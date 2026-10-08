@@ -22,3 +22,6 @@ JavaScript syntax and local file/anchor references were checked. Browser QA was 
 
 ## YouTube projects
 Use `type: "video"`, `category: "video"`, `provider: "youtube"`, an 11-character `youtubeId`, and a public watch URL in `src`. Thumbnails appear in the grid; the privacy-enhanced iframe is created on click and removed when the preview closes. A YouTube fallback link remains available if embedding is restricted. Category counts are calculated from the data. Actual playback depends on YouTube availability and the owner allowing embedding.
+
+## Background and display type
+All page sections share one continuous burgundy/wine/plum body background, with a noninteractive grain overlay. Anton is self-hosted under the included OFL license. The hero lettering uses SVG textLength for full-width fitting, negative letter spacing, and a taller responsive SVG box. Its fill retains 100% opacity at the top and 20% at the bottom.

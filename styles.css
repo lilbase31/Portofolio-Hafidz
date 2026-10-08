@@ -8,16 +8,22 @@
 /* YouTube is mounted only after a project is opened. */
 #dialog-media .youtube-player{display:block;width:100%;aspect-ratio:16/9;min-height:200px;max-height:68dvh;border:0;background:#090909}.youtube-fallback{display:inline-block;margin-top:16px;font-size:12px;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
 
-/* Editorial hero: condensed display lettering over a textured burgundy field. */
+/* A continuous wine/burgundy canvas, shared by every page section. */
 @font-face{font-family:Anton;src:url('assets/fonts/anton.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+body{position:relative;isolation:isolate;background-color:#0c080e;background-image:radial-gradient(ellipse 95% 850px at 12% 0%,#a6405c 0%,#78263f 30%,#441327 59%,transparent 100%),radial-gradient(ellipse 80% 1050px at 100% 160px,#74223f 0%,#381125 50%,transparent 100%),radial-gradient(ellipse 90% 1700px at 0% 56%,#38112290 0%,transparent 75%),radial-gradient(ellipse 85% 1300px at 100% 86%,#5d203850 0%,transparent 80%),linear-gradient(180deg,#3c1428 0px,#180b17 740px,#0c080e 1250px,#120a14 58%,#21101e 85%,#100910 100%);background-repeat:no-repeat}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.24;mix-blend-mode:soft-light}
+.header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.header.scrolled{background:#1b0c19e8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:#e2b4c31f}
 .hero{position:relative;isolation:isolate}
-.hero::before,.hero::after{content:"";position:absolute;top:-82px;bottom:0;left:calc((100% - 100vw)/2);width:100vw;pointer-events:none;z-index:-2}
-.hero::before{background:radial-gradient(ellipse at 14% 42%,#77263d9c 0%,transparent 55%),radial-gradient(ellipse at 88% 28%,#51203780 0%,transparent 49%),radial-gradient(ellipse at 56% 68%,#2e151f9e 0%,transparent 58%),linear-gradient(135deg,#100c11,#170e16 45%,#090a0c);mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%)}
-.hero::after{z-index:-1;background-image:url('assets/hero-grain.svg');background-size:180px 180px;opacity:.2;mix-blend-mode:soft-light;mask-image:linear-gradient(#000, #000 75%,transparent);-webkit-mask-image:linear-gradient(#000, #000 75%,transparent)}
 .hero-top,.hero-bottom{position:relative;z-index:2}
-.word-wrap{top:13%;height:46%;z-index:0}
+.hero-top .eyebrow,.hero-intro .eyebrow,.hero-intro p,.hero-bottom,nav a{color:#d4c2cb}
+.hero-bottom{border-color:#dfb8c522}
+.about{background:transparent;border-top:0;border-bottom:0}
+footer{border-color:#dfb8c522}
+.footer-word{color:#bc779b35}
+.word-wrap{top:2%;height:59%;z-index:0}
 .hero-word{display:block;width:100%;height:100%;overflow:visible;font-size:300px;line-height:1;font-weight:400;letter-spacing:0;color:inherit}
-.hero-word text{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:300px;font-weight:400;letter-spacing:0}
-.hero-intro,.hero-note{text-shadow:0 2px 18px #0b0b0c80}
-@media(max-width:1000px){.word-wrap{top:14%;height:43%}}
-@media(max-width:650px){.hero::before,.hero::after{top:-70px}.word-wrap{top:28px;height:155px}.hero-word{font-size:300px;letter-spacing:0}.hero::before{background:radial-gradient(ellipse at 8% 32%,#77263d9c,transparent 65%),radial-gradient(ellipse at 95% 44%,#51203780,transparent 60%),linear-gradient(140deg,#130d12,#090a0c)}.hero::after{opacity:.16}}
+.hero-word text{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:300px;font-weight:400;letter-spacing:-13px}
+.hero-intro,.hero-note{top:64%;text-shadow:0 2px 20px #160911aa}
+@media(max-width:1000px){.word-wrap{top:5%;height:54%}.hero-intro,.hero-note{top:65%}}
+@media(max-width:650px){body{background-image:radial-gradient(ellipse 140% 680px at 0% 0%,#a6405c 0%,#73253f 35%,transparent 100%),radial-gradient(ellipse 110% 850px at 100% 190px,#50192f 0%,transparent 85%),radial-gradient(ellipse 160% 1500px at 0% 60%,#3d142870,transparent 80%),linear-gradient(180deg,#42162b 0px,#1b0c19 580px,#0c080e 980px,#180d19 75%,#100910 100%)}body::before{opacity:.21}.word-wrap{top:14px;height:215px}.hero-word{font-size:300px;letter-spacing:0}.hero-word text{letter-spacing:-15px}.hero-intro{top:auto;bottom:22px}.hero-note{top:auto;bottom:24px}nav{background:#251020f5}}
