@@ -54,3 +54,18 @@ footer{border-color:#dfb8c522}
 @media(max-width:850px) and (min-width:651px){nav{gap:18px}.nav-actions{gap:12px}.nav-row{gap:16px}.nav-cta{padding:11px 13px}.nav-cta span{margin-left:10px}}
 @media(max-width:650px){.nav-row{gap:12px}.nav-actions{margin-left:auto;gap:8px}.nav-cta{margin:0;padding:10px;font-size:9px}.nav-cta span{margin-left:5px}.language-switch{gap:1px;font-size:10px}.language-switch button{padding:12px 4px}.header nav{background:#050506f5;justify-content:space-between;gap:14px}.menu-toggle{flex-shrink:0}.brand{font-size:20px}}
 @media(max-width:360px){.nav-row{gap:8px}.nav-actions{gap:4px}.brand{font-size:18px}.nav-cta{font-size:8px;padding:9px 8px}}
+
+/* Smooth studio lighting: black edges, burgundy behind the portrait, no grain. */
+:root{--bg:#000}
+body{background:#000;background-image:none}
+body::before{content:none;display:none}
+.hero::before{content:"";position:absolute;inset:0 -4.35vw 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 48% 53% at 50% 43%,#631126 0%,#390b17 37%,#16050a 65%,transparent 100%);mask-image:linear-gradient(#000 65%,transparent 100%);-webkit-mask-image:linear-gradient(#000 65%,transparent 100%)}
+.header.scrolled,.header nav{background:#000000f2}
+body[data-portfolio="video"] .work{position:relative;isolation:isolate}
+body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 55% 300px at 50% 0,#390b1780,transparent 100%)}
+.portfolio-pages{position:static;display:flex;gap:8px;padding:0;background:none!important;border:0;flex-wrap:wrap;font-size:11px}
+.portfolio-pages a{display:inline-flex;align-items:center;gap:18px;padding:13px 18px;border:1px solid #ffffff25;border-radius:30px;transition:background .25s,border-color .25s;color:#d4c1b4}
+.portfolio-pages a[aria-current="page"]{background:#3b0c0d;color:#fff;border-color:#751a31}
+.portfolio-pages a:hover{border-color:#9f304b;color:#fff}
+.next-portfolio{display:inline-flex;align-items:center;margin-top:38px}
+@media(max-width:650px){.hero::before{inset:0 -5.56vw 0;background:radial-gradient(ellipse 80% 45% at 50% 37%,#631126 0%,#390b17 37%,#16050a 65%,transparent 100%)}.portfolio-pages{gap:8px;padding:0}.portfolio-pages a{padding:12px 15px;font-size:10px}}

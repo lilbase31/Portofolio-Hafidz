@@ -11,7 +11,7 @@
   const more = document.querySelector('#load-more');
   const menu = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('#navigation');
-  let filter = 'all', limit = 8, opener, closeTimer;
+  let filter = document.body.dataset.portfolio === 'video' ? 'video' : 'design', limit = 8, opener, closeTimer;
   // A deliberate mix of landscape film, design and vertical editing in the first view.
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
@@ -99,7 +99,7 @@
   document.addEventListener('click',e=>{if(!e.target.closest('.header'))closeMenu();});
   if('IntersectionObserver' in window&&!reduced.matches){document.body.classList.add('motion');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}
   let ticking=false;
-  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=scrollY;document.querySelector('.header').classList.toggle('scrolled',y>20);const active=!reduced.matches&&innerWidth>650;document.querySelector('.hero-word').style.transform=active?`translateY(${Math.min(y*.09,42)}px)`:'none';document.querySelector('.portrait-wrap').style.translate=active?`0 ${Math.min(y*.035,20)}px`:'none';ticking=false;});}
+  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=scrollY;document.querySelector('.header').classList.toggle('scrolled',y>20);const active=!reduced.matches&&innerWidth>650;const word=document.querySelector('.hero-word'),portrait=document.querySelector('.portrait-wrap');if(word)word.style.transform=active?`translateY(${Math.min(y*.09,42)}px)`:'none';if(portrait)portrait.style.translate=active?`0 ${Math.min(y*.035,20)}px`:'none';ticking=false;});}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);reduced.addEventListener('change',onScroll);
   document.querySelector('#year').textContent=new Date().getFullYear();
   document.addEventListener('portfolio:language', () => {
