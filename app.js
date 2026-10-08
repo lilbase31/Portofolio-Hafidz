@@ -2,6 +2,7 @@
   'use strict';
   const data = window.PORTFOLIO;
   if (!data) return;
+  const t = key => window.portfolioLanguage.t(key);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const grid = document.querySelector('#projects');
   const dialog = document.querySelector('#project-dialog');
@@ -15,8 +16,12 @@
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
   const projects = [...data.projects].sort((a,b) => rank(a) - rank(b));
-  const label = p => p.type === 'video' ? 'Video Editing' : 'Desain Grafis';
+  const label = p => p.type === 'video' ? 'Video Editing' : t('design');
   function render() {
+  document.querySelectorAll('[data-filter]').forEach(button => {
+    button.querySelector('small').textContent = String(projects.filter(p => button.dataset.filter === 'all' || p.category === button.dataset.filter).length);
+  });
+
     const list = projects.filter(p => filter === 'all' || p.category === filter);
     grid.replaceChildren();
     list.slice(0,limit).forEach((p,i) => {
@@ -24,7 +29,7 @@
       card.type = 'button';
       card.className = `project card-enter ${p.type === 'video' ? 'video' : ''} ${p.height > p.width ? 'vertical' : ''} ${p.type === 'video' && p.width > p.height ? 'wide' : ''}`;
       card.style.setProperty('--delay', `${Math.min(i,5)*45}ms`);
-      card.setAttribute('aria-label', `${p.type === 'video' ? 'Putar' : 'Lihat'} ${p.title}`);
+      card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${p.title}`);
       const img = document.createElement('img');
       img.src = p.thumbnail; img.alt = p.title; img.loading = 'lazy'; img.decoding = 'async';
       img.width = p.width; img.height = p.height;
@@ -44,10 +49,11 @@
       card.addEventListener('click',()=>openProject(p,card)); grid.append(card);
     });
     more.hidden=limit>=list.length;
-    document.querySelector('#project-count').textContent=`${Math.min(limit,list.length)} / ${list.length} KARYA`;
-    document.querySelector('#result-status').textContent=`${list.length} karya ${filter==='all'?'tersedia':filter==='design'?'desain grafis':'video editing'}`;
+    document.querySelector('#project-count').textContent=`${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
+    document.querySelector('#result-status').textContent=`${list.length} ${t('available')}${filter==='all'?'':filter==='design'?' · '+t('design'):' · Video Editing'}`;
   }
   function openProject(p,trigger) {
+    dialog.dataset.projectId=p.id;
     clearTimeout(closeTimer); dialog.classList.remove('closing'); opener=trigger;
     document.querySelector('#dialog-title').textContent=p.title;
     document.querySelector('#dialog-category').textContent=label(p);
@@ -86,8 +92,8 @@
   document.querySelector('#close-dialog').addEventListener('click',closeProject);
   document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.filter;limit=8;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();}));
   more.addEventListener('click',()=>{const previous=grid.children.length;limit+=8;render();grid.children[previous]?.focus({preventScroll:true});});
-  function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Buka menu');navigation.classList.remove('open');}
-  menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Tutup menu':'Buka menu');navigation.classList.toggle('open',open);});
+  function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label',t('openMenu'));navigation.classList.remove('open');}
+  menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?t('closeMenu'):t('openMenu'));navigation.classList.toggle('open',open);});
   navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
   document.addEventListener('click',e=>{if(!e.target.closest('.header'))closeMenu();});
@@ -96,8 +102,12 @@
   function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=scrollY;document.querySelector('.header').classList.toggle('scrolled',y>20);const active=!reduced.matches&&innerWidth>650;document.querySelector('.hero-word').style.transform=active?`translateY(${Math.min(y*.09,42)}px)`:'none';document.querySelector('.portrait-wrap').style.translate=active?`0 ${Math.min(y*.035,20)}px`:'none';ticking=false;});}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);reduced.addEventListener('change',onScroll);
   document.querySelector('#year').textContent=new Date().getFullYear();
-  document.querySelectorAll('[data-filter]').forEach(button => {
-    button.querySelector('small').textContent = String(projects.filter(p => button.dataset.filter === 'all' || p.category === button.dataset.filter).length);
+  document.addEventListener('portfolio:language', () => {
+    render();
+    if (dialog.open) {
+      const project = projects.find(p => p.id === dialog.dataset.projectId);
+      if (project) document.querySelector('#dialog-category').textContent = label(project);
+    }
   });
   render();onScroll();
 })();
