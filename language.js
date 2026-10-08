@@ -7,11 +7,10 @@
   english['[data-page="design"]'] = 'Graphic Design';
   english['.next-portfolio'] = videoPage ? 'Back to Graphic Design <span>↗</span>' : 'Next: Video Editing <span>↗</span>';
   english['.social-heading'] = 'FIND ME ON';
-  english['.about .section-top > span:last-child'] = 'CREATIVITY WITH CHARACTER';
+  english['.about .section-top > span:last-child'] = 'About Me';
   english['#about-heading'] = 'ABOUT<br>ME<span>.</span>';
-  english['.about-copy > p:first-child'] = 'I’m Hafidz Aulia Rachman, a graphic designer, video editor, and content creator turning ideas into visuals and stories with character.';
-  english['.about-copy > p:nth-child(2)'] = 'In graphic design, I bring identity, composition, and messaging together for social media and promotional visuals. As a video editor, I shape footage, pacing, and storytelling into engaging, easy-to-follow videos.';
-  english['.about-copy > p:nth-child(3)'] = 'Through content creation, I develop ideas and concepts, plan how to communicate them, and combine design and video to build a consistent connection with audiences.';
+  english['.about-copy > p:first-child'] = 'I’m Hafidz Aulia Rachman, a graphic designer, video editor, and content creator. I turn ideas into engaging visual designs and videos for social media, branding, and promotional projects, with a focus on clear messaging and strong character.';
+  english['.software-design-heading'] = 'Graphic Design';
   const dynamic = {"design": ["Desain Grafis", "Graphic Design"], "play": ["Putar", "Play"], "view": ["Lihat", "View"], "works": ["KARYA", "PROJECTS"], "available": ["karya tersedia", "projects available"], "openMenu": ["Buka menu", "Open menu"], "closeMenu": ["Tutup menu", "Close menu"]};
   const attributes = [[".about-portrait img", "alt", "Hafidz Aulia Rachman dari sudut tiga perempat dengan jaket kulit burgundy", "Hafidz Aulia Rachman in a three-quarter portrait wearing a burgundy leather jacket"],[".brand", "aria-label", "Hafidz, beranda", "Hafidz, home"], ["#navigation", "aria-label", "Navigasi utama", "Main navigation"], [".filters", "aria-label", "Filter karya", "Filter projects"], ["#close-dialog", "aria-label", "Tutup preview", "Close preview"], [".contact-circle", "aria-label", "Kirim email untuk kolaborasi", "Email to collaborate"], [".portrait", "alt", "Hafidz Aulia Rachman mengenakan jaket kulit burgundy gelap", "Hafidz Aulia Rachman wearing a dark burgundy leather jacket"]];
   const originals = new Map();

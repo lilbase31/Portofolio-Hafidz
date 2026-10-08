@@ -90,3 +90,22 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .about-portrait figcaption{font-size:9px;letter-spacing:.12em;color:#a99d9b;text-align:center;padding-top:18px}
 @media(max-width:1000px){.hero-social{top:65%;width:210px}.social-link strong{font-size:10px}}
 @media(max-width:650px){.hero-social{top:auto;bottom:24px;width:155px;max-width:44%}.social-heading{font-size:7px;margin-bottom:8px}.social-link{gap:8px;padding:10px 0}.social-link svg{width:18px;height:18px}.social-link strong{font-size:8px}.social-link small{font-size:7px;margin-bottom:4px}.social-arrow{font-size:14px}.about-grid{grid-template-columns:1fr;gap:35px}#about-heading{font-size:105px;margin-bottom:28px}.about-copy>p:first-child{font-size:19px}.about-copy>p{font-size:13px}.about-portrait{width:min(100%,420px);justify-self:center}.about-portrait img{height:460px}}
+
+/* Compact contact icons and a portrait-free About Me with software tools. */
+.hero-roles{max-width:295px;line-height:1.8}
+.hero-social{width:230px;max-width:30%}
+.social-icons{display:flex;gap:10px;flex-wrap:wrap}
+.social-icons .social-link{display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid #ffffff35;border-radius:50%;background:#0005;transition:color .2s,border-color .2s,transform .2s}
+.social-icons .social-link:hover{border-color:#b74b69;color:#e8b5c4;transform:translateY(-3px)}
+.social-icons .social-link svg{width:22px;height:22px}
+.about-grid{grid-template-columns:.8fr 1.2fr;align-items:start;gap:clamp(35px,6vw,90px)}
+.about-copy{max-width:none}
+.about-copy>p:first-child{font-size:20px;line-height:1.75;margin-bottom:38px}
+.software-groups{display:grid;gap:30px}
+.software-group h3{font-size:13px;font-weight:500;color:#d4c1b4;letter-spacing:.02em;margin:0 0 16px}
+.software-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}
+.software-card{display:flex;flex-direction:column;gap:14px;padding:20px 15px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff03}
+.software-card img{width:48px;height:48px;object-fit:contain}
+.software-card span{font-size:11px;line-height:1.5;color:#e8e2df}
+@media(max-width:1000px){.hero-roles{max-width:230px}.hero-social{width:220px}}
+@media(max-width:650px){.hero-roles{max-width:170px;font-size:10px!important}.hero-social{width:104px;max-width:34%;bottom:32px}.social-icons{gap:10px}.social-icons .social-link{width:44px;height:44px}.social-heading{margin-bottom:12px}.about-grid{grid-template-columns:1fr;gap:12px}.about-copy>p:first-child{font-size:17px;margin-bottom:30px}.software-list{gap:9px}.software-card{padding:16px 10px;gap:12px}.software-card img{width:42px;height:42px}.software-card span{font-size:10px}.software-group h3{font-size:12px}}
