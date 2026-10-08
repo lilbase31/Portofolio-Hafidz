@@ -152,3 +152,27 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 
 .about-copy>p{font-size:17px;line-height:1.9;font-weight:300;margin:0 0 38px}
 @media(max-width:650px){.about-copy>p{font-size:14px}}
+
+/* Signature handwriting and a curved, horizontally browsable design gallery. */
+@font-face{font-family:'Portfolio Handwriting';src:url('assets/fonts/portfolio-handwriting.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+.creative-script,.greeting-name{font-family:'Portfolio Handwriting','Brush Script MT',cursive}
+.greeting-name{font-size:clamp(36px,3.6vw,53px)}
+.design-showcase .section-top .eyebrow{color:#a99d9b;text-transform:uppercase;font-weight:500}
+.design-showcase .work-heading{flex-direction:column;align-items:center;text-align:center;gap:26px;margin-bottom:20px}
+.design-showcase .portfolio-pages{justify-content:center}
+.design-gallery-copy{text-align:center;font-family:Poppins,Arial,sans-serif;font-weight:300;font-size:13px;color:#a99d9b;max-width:680px;margin:0 auto 26px}
+.design-showcase .more-row{justify-content:center;flex-direction:column;gap:14px;margin-top:0;margin-bottom:8px}
+.design-showcase #load-more{background:#fdfae3;color:#161014;border:0;font-weight:500}
+.design-showcase #load-more span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#800020;color:white;margin-left:16px}
+.gallery-shell{position:relative;margin:0 calc(-4.35vw);}
+.design-showcase .projects{position:relative;display:flex;gap:22px;overflow-x:auto;overscroll-behavior-inline:contain;padding:90px 6vw 35px;scroll-padding-inline:6vw;scrollbar-width:thin;scrollbar-color:#800020 #ffffff08;perspective:1200px}
+.design-showcase .project{flex:0 0 clamp(160px,15vw,225px);aspect-ratio:3/4;border-radius:16px;background:#0b0b0b;animation:none;transform:perspective(900px) translateY(var(--gallery-lift,0px)) rotateY(var(--gallery-yaw,0deg)) scale(var(--gallery-scale,1));transform-origin:center;will-change:transform}
+.design-showcase .project img{object-fit:contain}
+.design-showcase .project-info{bottom:15px;left:14px;right:14px}
+.design-showcase .project-info strong{font-size:12px}
+.gallery-controls{display:flex;justify-content:center;gap:12px;padding-top:22px}
+.gallery-control{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffff30;background:#0008;color:#fdfae3;border-radius:50%;font-size:20px;transition:background .2s}
+.gallery-control:hover{background:#800020}
+.design-showcase .next-portfolio{display:flex;width:max-content;max-width:100%;margin:35px auto 0}
+@media(max-width:650px){.gallery-shell{margin-inline:-5.56vw}.design-showcase .projects{gap:18px;padding:75px 15vw 30px}.design-showcase .project{flex-basis:180px}.design-gallery-copy{font-size:11px}.greeting-name{font-size:37px}}
+@media(prefers-reduced-motion:reduce){.design-showcase .project{transform:none;will-change:auto}}

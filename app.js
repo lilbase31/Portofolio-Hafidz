@@ -48,10 +48,32 @@
       }
       card.addEventListener('click',()=>openProject(p,card)); grid.append(card);
     });
+    if (filter === 'design') requestAnimationFrame(updateGalleryCurve);
     more.hidden=limit>=list.length;
     document.querySelector('#project-count').textContent=`${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
     document.querySelector('#result-status').textContent=`${list.length} ${t('available')}${filter==='all'?'':filter==='design'?' · '+t('design'):' · Video Editing'}`;
   }
+  let galleryTicking = false;
+  function updateGalleryCurve() {
+    galleryTicking = false;
+    if (filter !== 'design') return;
+    const width = grid.clientWidth;
+    if (!width) return;
+    for (const card of grid.children) {
+      const offset = Math.max(-1, Math.min(1, (card.offsetLeft + card.offsetWidth / 2 - grid.scrollLeft - width / 2) / (width / 2)));
+      card.style.setProperty('--gallery-yaw', `${-offset * 30}deg`);
+      card.style.setProperty('--gallery-lift', `${-Math.abs(offset) * 52}px`);
+      card.style.setProperty('--gallery-scale', String(1 + Math.abs(offset) * .1));
+    }
+  }
+  function scheduleGalleryCurve() {
+    if (galleryTicking) return;
+    galleryTicking = true;
+    requestAnimationFrame(updateGalleryCurve);
+  }
+  grid.addEventListener('scroll', scheduleGalleryCurve, {passive:true});
+  addEventListener('resize', scheduleGalleryCurve);
+  document.querySelectorAll('[data-gallery-direction]').forEach(button => button.addEventListener('click', () => grid.scrollBy({left:Number(button.dataset.galleryDirection) * grid.clientWidth * .65, behavior:reduced.matches?'instant':'smooth'})));
   function openProject(p,trigger) {
     dialog.dataset.projectId=p.id;
     clearTimeout(closeTimer); dialog.classList.remove('closing'); opener=trigger;
