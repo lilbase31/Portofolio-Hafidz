@@ -69,3 +69,24 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .portfolio-pages a:hover{border-color:#9f304b;color:#fff}
 .next-portfolio{display:inline-flex;align-items:center;margin-top:38px}
 @media(max-width:650px){.hero::before{inset:0 -5.56vw 0;background:radial-gradient(ellipse 80% 45% at 50% 37%,#631126 0%,#390b17 37%,#16050a 65%,transparent 100%)}.portfolio-pages{gap:8px;padding:0}.portfolio-pages a{padding:12px 15px;font-size:10px}}
+
+/* Clickable social profiles and the second section: About me. */
+.hero-social{width:250px;max-width:28%;top:65%}
+.social-heading{display:block;margin-bottom:16px}
+.social-link{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #ffffff25;transition:color .25s}
+.social-link:hover{color:#d48b9f}
+.social-link svg{width:23px;height:23px;flex-shrink:0}
+.social-link small{display:block;font-size:9px;color:#b2a6aa;margin-bottom:5px}
+.social-link strong{font-size:12px;font-weight:400;overflow-wrap:anywhere}
+.social-arrow{margin-left:auto;font-size:19px}
+.about-grid{grid-template-columns:1.1fr 1fr;gap:clamp(35px,7vw,110px);align-items:center;margin-top:35px}
+#about-heading{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:clamp(90px,12vw,172px);font-weight:400;letter-spacing:-.035em;line-height:.96;text-align:left;margin-bottom:38px}
+.about-copy{max-width:620px}
+.about-copy>p:first-child{font-size:22px;line-height:1.6}
+.about-copy>p{font-size:14px;line-height:1.85}
+.about-portrait{position:relative;margin:0;align-self:center;isolation:isolate}
+.about-portrait::before{content:"";position:absolute;inset:8% -8% 0;z-index:-1;background:radial-gradient(ellipse at 50% 55%,#531025 0%,#1c060d 50%,transparent 72%)}
+.about-portrait img{width:100%;height:clamp(480px,48vw,680px);object-fit:contain;object-position:center bottom;mask-image:linear-gradient(#000 80%,transparent 100%);-webkit-mask-image:linear-gradient(#000 80%,transparent 100%)}
+.about-portrait figcaption{font-size:9px;letter-spacing:.12em;color:#a99d9b;text-align:center;padding-top:18px}
+@media(max-width:1000px){.hero-social{top:65%;width:210px}.social-link strong{font-size:10px}}
+@media(max-width:650px){.hero-social{top:auto;bottom:24px;width:155px;max-width:44%}.social-heading{font-size:7px;margin-bottom:8px}.social-link{gap:8px;padding:10px 0}.social-link svg{width:18px;height:18px}.social-link strong{font-size:8px}.social-link small{font-size:7px;margin-bottom:4px}.social-arrow{font-size:14px}.about-grid{grid-template-columns:1fr;gap:35px}#about-heading{font-size:105px;margin-bottom:28px}.about-copy>p:first-child{font-size:19px}.about-copy>p{font-size:13px}.about-portrait{width:min(100%,420px);justify-self:center}.about-portrait img{height:460px}}
