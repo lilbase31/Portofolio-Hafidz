@@ -85,6 +85,14 @@
     composition.addEventListener('click',()=>openProject(asset,composition));
     return composition;
   }
+  function renderVideoGallery(target,host,other,list) {
+    target.replaceChildren();
+    list.filter(p=>p.height>p.width).forEach((p,i)=>target.append(createProjectCard(p,i)));
+    const carousel = createFeedCarousel(target,'video');
+    host.replaceChildren(); host.append(carousel);
+    other.replaceChildren();
+    list.filter(p=>p.height<=p.width).forEach((p,i)=>other.append(createProjectCard(p,i)));
+  }
   function render() {
     const list = projects.filter(p => filter === 'all' || p.category === filter);
     grid.replaceChildren();
@@ -126,13 +134,14 @@
       const compositionHost = document.querySelector('#social-composition-host');
       if (compositionHost) { compositionHost.replaceChildren(); compositionHost.append(createSocialComposition()); }
     } else if (filter === 'video' && document.body.dataset.videoLayout === 'shortform-gallery') {
-      list.filter(p=>p.height>p.width).forEach((p,i)=>grid.append(createProjectCard(p,i)));
-      const host = document.querySelector('#shortform-carousel');
-      const carousel = createFeedCarousel(grid,'video');
-      host.replaceChildren(); host.append(carousel);
-      const other = document.querySelector('#longform-projects'); other.replaceChildren();
-      list.filter(p=>p.height<=p.width).forEach((p,i)=>other.append(createProjectCard(p,i)));
+      renderVideoGallery(grid,document.querySelector('#shortform-carousel'),document.querySelector('#longform-projects'),list);
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
+    const inlineVideos = document.querySelector('#video-projects');
+    if (inlineVideos && document.body.dataset.portfolio === 'design') {
+      const videos = projects.filter(p=>p.category==='video').sort((a,b)=>rank(a)-rank(b));
+      renderVideoGallery(inlineVideos,document.querySelector('#video-shortform-carousel'),document.querySelector('#video-other-projects'),videos);
+      document.querySelector('#video-result-status').textContent = `${videos.length} ${t('available')} · Video Editing`;
+    }
     if (more) more.hidden = limit >= list.length;
     const count = document.querySelector('#project-count');
     if (count) count.textContent = `${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
