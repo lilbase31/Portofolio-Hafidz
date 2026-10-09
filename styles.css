@@ -248,3 +248,29 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .feed-carousel-arrow:focus-visible{outline:2px solid #b9415f;outline-offset:3px}
 @media(max-width:650px){.feed-carousel{--feed-gap:9px}.feed-carousel-controls{padding-top:8px}}
 @media(prefers-reduced-motion:reduce){.feed-carousel .feed-group{scroll-behavior:auto}.feed-carousel-arrow{transition:none}}
+
+/* Instagram panel and three floating designs follow the supplied reference. */
+.social-composition{position:relative;width:100%;aspect-ratio:1/1.12;isolation:isolate;margin-top:4px}
+.social-composition::before{content:"";position:absolute;inset:18% -8% 0;z-index:-1;background:radial-gradient(ellipse at 50% 60%,#80002035,transparent 72%);filter:blur(20px);pointer-events:none}
+.social-sketch .composition-tile{position:absolute;width:41%;border-radius:9px;box-shadow:0 14px 25px #000b,0 0 14px #80002020;overflow:hidden;transition:translate .25s,box-shadow .25s}
+.social-sketch .composition-tile-left{left:0;top:36%;z-index:1}
+.social-sketch .composition-tile-top{right:0;top:13%;z-index:4}
+.social-sketch .composition-tile-bottom{right:2%;bottom:1%;z-index:1}
+.composition-instagram{position:absolute;left:26%;top:4%;width:48%;z-index:3;border-radius:12px;overflow:hidden;background:#f6f3ef;color:#181416;border:1px solid #ffffff80;box-shadow:0 20px 32px #000c,0 5px 22px #80002035}
+.composition-header{display:flex;align-items:center;justify-content:space-between;padding:10px 9px 6px}
+.composition-header>span:first-child{font-family:'Portfolio Handwriting',cursive;font-size:clamp(13px,1.3vw,19px);line-height:1}
+.composition-header>span:last-child{font-size:15px;line-height:1}
+.composition-brand{display:flex;align-items:center;gap:4px;padding:5px 7px 7px;font-family:Poppins,Arial,sans-serif;font-size:5px;font-weight:500}
+.composition-brand>span:last-child{margin-left:auto;font-size:10px}
+.composition-avatar{display:grid;place-items:center;width:15px;height:15px;border-radius:50%;background:#800020;color:#fff;font-size:6px;flex-shrink:0}
+.social-sketch .composition-post{display:block;border-radius:0;box-shadow:none;overflow:hidden;background:#000}
+.social-sketch .social-composition .project-info{display:none}
+.composition-footer{padding:7px 8px 9px}
+.composition-footer svg{display:block;width:100%;height:15px}
+.composition-home-bar{display:block;width:35%;height:2px;border-radius:2px;background:#28202550;margin:12px auto 0}
+.social-sketch .composition-tile:hover{translate:0 -4px;box-shadow:0 18px 30px #000c,0 0 18px #80002055}
+.social-sketch .composition-post:focus-visible,.social-sketch .composition-tile:focus-visible{outline:2px solid #b9415f;outline-offset:3px}
+.social-design-details .story-mockups{gap:26px}
+@media(max-width:1000px){.social-composition{max-width:330px}.composition-brand{font-size:6px}}
+@media(max-width:650px){.social-composition{max-width:280px}.composition-header{padding:8px 6px 4px}.composition-brand{padding:4px 5px 6px;font-size:4px;gap:3px}.composition-avatar{width:12px;height:12px;font-size:5px}.composition-header>span:first-child{font-size:13px}.composition-footer{padding:5px 6px 7px}.composition-footer svg{height:12px}.composition-home-bar{margin-top:8px}.social-design-details .story-mockups{gap:20px}}
+@media(prefers-reduced-motion:reduce){.social-sketch .composition-tile{transition:none}.social-sketch .composition-tile:hover{translate:none}}
