@@ -46,6 +46,33 @@
       card.addEventListener('click',()=>openProject(p,card)); return card;
 
   }
+  function createFeedCarousel(track) {
+    const carousel = document.createElement('div'); carousel.className = 'feed-carousel';
+    const controls = document.createElement('div'); controls.className = 'feed-carousel-controls';
+    const previous = document.createElement('button'), next = document.createElement('button');
+    for (const [button,direction,key,icon] of [[previous,-1,'previousDesigns','←'],[next,1,'nextDesigns','→']]) {
+      button.type = 'button'; button.className = 'feed-carousel-arrow';
+      button.textContent = icon; button.setAttribute('aria-label',t(key));
+      button.addEventListener('click', () => {
+        const cards = [...track.children];
+        const current = cards.reduce((best,card,i) => Math.abs(card.offsetLeft-track.scrollLeft) < Math.abs(cards[best].offsetLeft-track.scrollLeft) ? i : best,0);
+        const target = cards[Math.max(0,Math.min(cards.length-1,current+direction))];
+        if (target) track.scrollTo({left:target.offsetLeft,behavior:reduced.matches?'instant':'smooth'});
+      });
+      controls.append(button);
+    }
+    track.addEventListener('keydown',event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault(); (event.key === 'ArrowLeft' ? previous : next).click();
+      }
+    });
+    const update = () => {
+      previous.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= track.scrollWidth-track.clientWidth-1;
+    };
+    track.addEventListener('scroll',update,{passive:true});
+    carousel.append(track,controls); requestAnimationFrame(update); return carousel;
+  }
   function render() {
     const list = projects.filter(p => filter === 'all' || p.category === filter);
     grid.replaceChildren();
@@ -58,7 +85,7 @@
         group.className = `feed-group feed-group-${format}`;
         group.setAttribute('role', 'group');
         group.setAttribute('aria-label', format === 'portrait' ? 'Feed 4:5' : format === 'square' ? 'Feed 1:1' : 'Dari Ladang ke Lintingan · The Taste of Tradition');
-        groups[format] = group; grid.append(group);
+        groups[format] = group; grid.append(format === 'editorial' ? group : createFeedCarousel(group));
       }
       list.forEach((p,i) => {
         const card = createProjectCard(p,i);

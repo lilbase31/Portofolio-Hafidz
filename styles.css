@@ -236,3 +236,15 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 @media(max-width:380px){.social-design-details{grid-template-columns:1fr}.phone-mockup.iphone-art{width:min(75%,250px)}}
 
 @media(max-width:650px){.social-design-details .design-process,.social-design-details .story-mockups{grid-column:auto;grid-row:auto}}
+
+/* Three visible previews per format, all remaining designs in one horizontal row. */
+.feed-carousel{min-width:0;width:100%;--feed-gap:14px}
+.feed-carousel .feed-group{position:relative;display:flex;gap:var(--feed-gap);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#800020 #ffffff08;padding-bottom:14px;align-items:flex-start}
+.social-sketch .feed-carousel .project{flex:0 0 calc((100% - var(--feed-gap) * 2) / 3);width:calc((100% - var(--feed-gap) * 2) / 3);scroll-snap-align:start;scroll-snap-stop:always}
+.feed-carousel-controls{display:flex;justify-content:flex-end;gap:8px;padding-top:10px}
+.feed-carousel-arrow{display:grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid #ffffff25;border-radius:50%;background:#080808;color:#fdfae3;font-size:17px;cursor:pointer;transition:background .2s,border-color .2s}
+.feed-carousel-arrow:hover{background:#800020;border-color:#800020}
+.feed-carousel-arrow:disabled{opacity:.25;cursor:default;background:#080808;border-color:#ffffff25}
+.feed-carousel-arrow:focus-visible{outline:2px solid #b9415f;outline-offset:3px}
+@media(max-width:650px){.feed-carousel{--feed-gap:9px}.feed-carousel-controls{padding-top:8px}}
+@media(prefers-reduced-motion:reduce){.feed-carousel .feed-group{scroll-behavior:auto}.feed-carousel-arrow{transition:none}}
