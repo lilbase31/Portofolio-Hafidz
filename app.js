@@ -77,12 +77,13 @@
     const composition = document.createElement('div');
     composition.className = 'social-composition';
     composition.setAttribute('role','group'); composition.setAttribute('aria-label',t('socialComposition'));
+    const canvas = document.createElement('div'); canvas.className = 'composition-canvas'; composition.append(canvas);
     const find = id => list.find(p => p.id.endsWith('/'+id));
-    for (const [id,position] of [['jagonya-kretek','left'],['varian-mangga','top'],['3pk-nikmatnya','bottom']]) {
+    for (const [id,position] of [['jagonya-kretek','left'],['s-nya-apa','left-bottom'],['varian-mangga','top'],['3pk-nikmatnya','bottom'],['feed-2','upper']]) {
       const project = find(id); if (!project) continue;
       const card = createProjectCard(project,0);
       card.classList.add('composition-tile',`composition-tile-${position}`);
-      composition.append(card);
+      canvas.append(card);
     }
     const featured = find('paper-favo');
     if (featured) {
@@ -95,7 +96,7 @@
       const footer = document.createElement('div'); footer.className = 'composition-footer';
       footer.setAttribute('aria-hidden','true');
       footer.innerHTML = '<svg viewBox="0 0 80 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 15S1 10 1 5a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 10-7 10Z"/><path d="M32 12a6 6 0 1 0-4 2l-4 2 1-5"/><path d="m44 3 14-2-6 14-2-6-6-6Zm6 6 8-8"/><path d="M69 2h9v13l-4.5-3-4.5 3Z"/></svg><span class="composition-home-bar"></span>';
-      panel.append(header,brand,card,footer); composition.append(panel);
+      panel.append(header,brand,card,footer); canvas.append(panel);
     }
     return composition;
   }
@@ -137,7 +138,8 @@
           groups[editorial ? 'editorial' : p.height > p.width ? 'portrait' : 'square'].append(card);
         }
       });
-      stories.append(createSocialComposition(list));
+      const compositionHost = document.querySelector('#social-composition-host');
+      if (compositionHost) { compositionHost.replaceChildren(); compositionHost.append(createSocialComposition(list)); }
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
     if (more) more.hidden = limit >= list.length;
     const count = document.querySelector('#project-count');
