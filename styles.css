@@ -309,3 +309,21 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .instagram-deck:hover{translate:0 -4px}
 .instagram-deck:focus-visible{outline:2px solid #b9415f;outline-offset:6px}
 @media(prefers-reduced-motion:reduce){.social-composition.instagram-deck{transition:none}.instagram-deck:hover{translate:none}}
+
+/* Video editing opens with a straight, horizontally scrollable shortform gallery. */
+.video-showcase .section-top .eyebrow{color:#a99d9b;text-transform:uppercase;font-weight:500}
+.video-showcase .work-heading{display:flex;justify-content:center;align-items:center;text-align:center;margin:35px 0 64px}
+.video-showcase #work-heading{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:clamp(62px,8vw,118px);font-weight:400;line-height:1.05;letter-spacing:-.035em;color:#fdfae3}
+.video-category-heading{font-family:Poppins,Arial,sans-serif;font-size:clamp(15px,1.5vw,21px);font-weight:500;letter-spacing:.12em;margin:0 0 24px;color:#fdfae3}
+.video-showcase .shortform-track{position:relative;display:flex;gap:22px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#800020 #ffffff08;padding:0 0 22px;align-items:start;perspective:none}
+.video-showcase .shortform-track .project{flex:0 0 clamp(190px,22vw,280px);width:clamp(190px,22vw,280px);grid-column:auto;aspect-ratio:9/16;border-radius:10px;transform:none;animation:none;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:0 12px 20px #000a,0 4px 18px #80002025}
+.video-showcase .shortform-track .project img{width:100%;height:100%;object-fit:cover}
+.video-showcase .feed-carousel-controls{padding-top:4px}
+.video-showcase .feed-carousel-arrow{width:38px;height:38px}
+.other-video-section{margin-top:66px}
+.video-showcase .other-video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.video-showcase .other-video-grid .project{grid-column:auto;aspect-ratio:16/9;animation:none;box-shadow:0 12px 24px #0009,0 4px 18px #80002020}
+.video-showcase .next-portfolio{display:flex;width:max-content;max-width:100%;margin:45px auto 0}
+@media(max-width:1000px){.video-showcase .other-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.video-showcase .work-heading{margin:20px 0 42px}.video-showcase #work-heading{font-size:clamp(42px,11.5vw,72px)}.video-category-heading{font-size:13px;margin-bottom:18px}.video-showcase .shortform-track{gap:16px;padding-bottom:18px}.video-showcase .shortform-track .project{flex-basis:65vw;width:65vw;max-width:260px}.video-showcase .other-video-grid{grid-template-columns:1fr;gap:18px}.other-video-section{margin-top:46px}}
+@media(prefers-reduced-motion:reduce){.video-showcase .shortform-track{scroll-behavior:auto}}

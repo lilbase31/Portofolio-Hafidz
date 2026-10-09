@@ -46,11 +46,11 @@
       card.addEventListener('click',()=>openProject(p,card)); return card;
 
   }
-  function createFeedCarousel(track) {
+  function createFeedCarousel(track,kind = 'design') {
     const carousel = document.createElement('div'); carousel.className = 'feed-carousel';
     const controls = document.createElement('div'); controls.className = 'feed-carousel-controls';
     const previous = document.createElement('button'), next = document.createElement('button');
-    for (const [button,direction,key,icon] of [[previous,-1,'previousDesigns','←'],[next,1,'nextDesigns','→']]) {
+    for (const [button,direction,key,icon] of [[previous,-1,kind === 'video' ? 'previousVideos' : 'previousDesigns','←'],[next,1,kind === 'video' ? 'nextVideos' : 'nextDesigns','→']]) {
       button.type = 'button'; button.className = 'feed-carousel-arrow';
       button.textContent = icon; button.setAttribute('aria-label',t(key));
       button.addEventListener('click', () => {
@@ -125,6 +125,13 @@
       });
       const compositionHost = document.querySelector('#social-composition-host');
       if (compositionHost) { compositionHost.replaceChildren(); compositionHost.append(createSocialComposition()); }
+    } else if (filter === 'video' && document.body.dataset.videoLayout === 'shortform-gallery') {
+      list.filter(p=>p.height>p.width).forEach((p,i)=>grid.append(createProjectCard(p,i)));
+      const host = document.querySelector('#shortform-carousel');
+      const carousel = createFeedCarousel(grid,'video');
+      host.replaceChildren(); host.append(carousel);
+      const other = document.querySelector('#longform-projects'); other.replaceChildren();
+      list.filter(p=>p.height<=p.width).forEach((p,i)=>other.append(createProjectCard(p,i)));
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
     if (more) more.hidden = limit >= list.length;
     const count = document.querySelector('#project-count');
