@@ -15,7 +15,7 @@
   // A deliberate mix of landscape film, design and vertical editing in the first view.
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
-  const projects = [...data.projects].sort((a,b) => rank(a) - rank(b));
+  const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => rank(a) - rank(b));
   const label = p => p.type === 'video' ? 'Video Editing' : t('design');
   function render() {
   document.querySelectorAll('[data-filter]').forEach(button => {
@@ -29,6 +29,7 @@
       card.type = 'button';
       card.className = `project card-enter ${p.type === 'video' ? 'video' : ''} ${p.height > p.width ? 'vertical' : ''} ${p.type === 'video' && p.width > p.height ? 'wide' : ''}`;
       card.style.setProperty('--delay', `${Math.min(i,5)*45}ms`);
+      if (p.category === 'design') card.style.setProperty('--design-ratio', `${p.width} / ${p.height}`);
       card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${p.title}`);
       const img = document.createElement('img');
       img.src = p.thumbnail; img.alt = p.title; img.loading = 'lazy'; img.decoding = 'async';

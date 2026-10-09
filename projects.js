@@ -109,7 +109,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328276/portfolio/desain-feed/dari-ladang-ke-lintingan.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328276/portfolio/desain-feed/dari-ladang-ke-lintingan.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328276/portfolio/desain-feed/dari-ladang-ke-lintingan.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/combo-coffee",
@@ -139,7 +141,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328239/portfolio/desain-feed/teka-teki-mewah.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328239/portfolio/desain-feed/teka-teki-mewah.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328239/portfolio/desain-feed/teka-teki-mewah.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/tot-mewah",
@@ -149,7 +153,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328220/portfolio/desain-feed/tot-mewah.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328220/portfolio/desain-feed/tot-mewah.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328220/portfolio/desain-feed/tot-mewah.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/its-jago-time",
@@ -159,7 +165,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328212/portfolio/desain-feed/its-jago-time.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328212/portfolio/desain-feed/its-jago-time.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328212/portfolio/desain-feed/its-jago-time.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/the-taste-of-tradition",
@@ -169,7 +177,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328201/portfolio/desain-feed/the-taste-of-tradition.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328201/portfolio/desain-feed/the-taste-of-tradition.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328201/portfolio/desain-feed/the-taste-of-tradition.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/rev-katalog-3p-paper",
@@ -179,7 +189,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328192/portfolio/desain-feed/rev-katalog-3p-paper.png",
       "width": 1080,
       "height": 1920,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328192/portfolio/desain-feed/rev-katalog-3p-paper.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328192/portfolio/desain-feed/rev-katalog-3p-paper.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/samsoe-series",
@@ -199,7 +211,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328169/portfolio/desain-feed/feed-2.png",
       "width": 1080,
       "height": 1080,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328169/portfolio/desain-feed/feed-2.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328169/portfolio/desain-feed/feed-2.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/jagonya-kretek",
@@ -209,7 +223,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328160/portfolio/desain-feed/jagonya-kretek.png",
       "width": 1080,
       "height": 1350,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328160/portfolio/desain-feed/jagonya-kretek.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328160/portfolio/desain-feed/jagonya-kretek.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/paper-favo",
@@ -219,7 +235,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328151/portfolio/desain-feed/paper-favo.png",
       "width": 1080,
       "height": 1350,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328151/portfolio/desain-feed/paper-favo.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328151/portfolio/desain-feed/paper-favo.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/varian-mangga",
@@ -229,7 +247,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328137/portfolio/desain-feed/varian-mangga.png",
       "width": 1080,
       "height": 1350,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328137/portfolio/desain-feed/varian-mangga.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328137/portfolio/desain-feed/varian-mangga.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/s-nya-apa",
@@ -239,7 +259,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328126/portfolio/desain-feed/s-nya-apa.png",
       "width": 1080,
       "height": 1350,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328126/portfolio/desain-feed/s-nya-apa.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328126/portfolio/desain-feed/s-nya-apa.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "portfolio/desain-feed/3pk-nikmatnya",
@@ -249,7 +271,9 @@ window.PORTFOLIO = {
       "src": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png",
       "width": 1080,
       "height": 1350,
-      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/w_900,q_auto,f_auto/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png"
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1790328098/portfolio/desain-feed/3pk-nikmatnya.png",
+      "collection": "social-media",
+      "assetFolder": "portfolio/SOCIAL MEDIA DESIGN"
     },
     {
       "id": "youtube/IBXJGuySfq4",
