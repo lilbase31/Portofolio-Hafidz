@@ -209,3 +209,12 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .social-design-details{display:contents}
 @media(max-width:1000px){.social-design-details{display:flex;flex-direction:column;gap:28px;grid-column:2;grid-row:1;min-width:0}.social-design-details .story-mockups{margin-top:0}.social-design-details .design-process{padding-top:0}}
 @media(max-width:650px){.social-design-details{grid-column:1;grid-row:auto;gap:25px}}
+
+/* Generated iPhone artwork retains its perspective and transparent edges. */
+.phone-mockup.iphone-art{width:min(100%,320px);padding:0;border:0;border-radius:0;background:none;box-shadow:none;transform:none;isolation:isolate}
+.iphone-art::before{content:"";position:absolute;inset:20% -12% 0;z-index:-1;background:radial-gradient(ellipse at 65% 65%,#80002070,transparent 70%);filter:blur(22px);pointer-events:none}
+.social-sketch .phone-render{display:block;aspect-ratio:2/3;border-radius:0;background:transparent;box-shadow:none;overflow:visible;filter:drop-shadow(15px 25px 20px #000c) drop-shadow(8px 8px 22px #80002080);transition:filter .25s,translate .25s}
+.social-sketch .phone-render:hover{translate:0 -5px;filter:drop-shadow(15px 30px 24px #000c) drop-shadow(8px 8px 28px #800020a0)}
+.social-sketch .phone-render img{object-fit:contain;transform:none}
+.phone-render .project-info{display:none}
+@media(prefers-reduced-motion:reduce){.social-sketch .phone-render{transition:none}.social-sketch .phone-render:hover{translate:none}}

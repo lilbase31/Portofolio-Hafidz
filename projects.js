@@ -188,6 +188,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "portfolio/desain-feed/rev-katalog-3p-paper",
+      "mockup": "assets/iphone17-story.webp",
       "title": "REV Katalog 3P Paper",
       "type": "image",
       "category": "design",

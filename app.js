@@ -15,7 +15,10 @@
   // A deliberate mix of landscape film, design and vertical editing in the first view.
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
-  const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
+  // The five screenshot designs lead; the two tradition designs share row three.
+  const feedOrder = ['jagonya-kretek', 'paper-favo', 'varian-mangga', 's-nya-apa', '3pk-nikmatnya', 'feed-2', 'dari-ladang-ke-lintingan', 'the-taste-of-tradition', 'its-jago-time', 'teka-teki-mewah', 'tot-mewah'];
+  const feedRank = p => { const i = feedOrder.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
+  const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? feedRank(a) - feedRank(b) || Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
   const label = p => p.type === 'video' ? 'Video Editing' : t('design');
   function createProjectCard(p,i) {
       const card = document.createElement('button');
@@ -54,11 +57,20 @@
         const story = Math.abs(p.width / p.height - 9 / 16) < .02;
         if (story) {
           const phone = document.createElement('div');
-          phone.className = 'phone-mockup';
-          card.classList.add('phone-screen');
-          const speaker = document.createElement('span');
-          speaker.className = 'phone-speaker'; speaker.setAttribute('aria-hidden','true');
-          phone.append(card,speaker); stories.append(phone);
+          phone.className = p.mockup ? 'phone-mockup iphone-art' : 'phone-mockup';
+          if (p.mockup) {
+            const image = card.querySelector('img');
+            image.src = p.mockup; image.width = 840; image.height = 1260;
+            image.alt = `${p.title} — iPhone 17 mockup`;
+            card.classList.add('phone-render');
+            phone.append(card);
+          } else {
+            card.classList.add('phone-screen');
+            const speaker = document.createElement('span');
+            speaker.className = 'phone-speaker'; speaker.setAttribute('aria-hidden','true');
+            phone.append(card,speaker);
+          }
+          stories.append(phone);
         } else grid.append(card);
       });
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
