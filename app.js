@@ -36,7 +36,7 @@
       const infoCopy = document.createElement('span');
       const category = document.createElement('small'); category.textContent=label(p);
       const title = document.createElement('strong'); title.textContent=p.title;
-      const arrow = document.createElement('span'); arrow.textContent='↗'; arrow.setAttribute('aria-hidden','true');
+      const arrow = document.createElement('span'); arrow.innerHTML=window.portfolioIcons.arrow('↗'); arrow.setAttribute('aria-hidden','true');
       infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);
       if(p.type === 'video') {
         const play=document.createElement('span'); play.className='play'; play.textContent='▶'; play.setAttribute('aria-hidden','true');
@@ -52,7 +52,7 @@
     const previous = document.createElement('button'), next = document.createElement('button');
     for (const [button,direction,key,icon] of [[previous,-1,kind === 'video' ? 'previousVideos' : 'previousDesigns','←'],[next,1,kind === 'video' ? 'nextVideos' : 'nextDesigns','→']]) {
       button.type = 'button'; button.className = 'feed-carousel-arrow';
-      button.textContent = icon; button.setAttribute('aria-label',t(key));
+      button.innerHTML = window.portfolioIcons.arrow(icon); button.setAttribute('aria-label',t(key));
       button.addEventListener('click', () => {
         const cards = [...track.children];
         const current = cards.reduce((best,card,i) => Math.abs(card.offsetLeft-track.scrollLeft) < Math.abs(cards[best].offsetLeft-track.scrollLeft) ? i : best,0);

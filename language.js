@@ -1,5 +1,12 @@
 (() => {
   'use strict';
+  const arrow = direction => {
+    const angle = {'↗':0,'→':45,'↘':90,'↓':135,'↙':180,'←':225,'↖':270,'↑':315}[direction] ?? 0;
+    return `<svg class="ui-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path transform="rotate(${angle} 12 12)" d="M5 19 19 5M5 5h14v14"/></svg>`;
+  };
+  const withArrows = html => html.replace(/[↗→↘↓↙←↖↑]/g,arrow);
+  window.portfolioIcons = {arrow,withArrows};
+
   const english = {".skip": "Skip to projects", ".nav-cta": "Let’s collaborate <span>↗</span>", ".hero-intro .eyebrow": "HELLO, I’M", ".hero-note p": "Design that speaks.<br>Video that tells a story.", ".text-link": "Explore projects <span>↘</span>", ".hero-bottom > span:first-child": "IDEAS. VISUALS. STORIES.", ".hero-bottom > a": "SCROLL TO EXPLORE <span>↓</span>", ".work .section-top p": "Every project has a story.<br>Here are a few of mine.", "#work-heading": "Selected work<span>.</span>", "[data-filter=\"all\"]": "All <small>27</small>", "[data-filter=\"design\"]": "Graphic Design <small>15</small>", "#load-more": "View more <span>＋</span>", ".about .section-top > span:last-child": "ABOUT ME", ".about-grid > h2": "Ideas into visuals.<br>Visuals into<br><em>stories.</em>", ".about-copy > p": "I’m Hafidz Aulia Rachman, a visual creator focused on graphic design and video editing.", ".about-copy > p:nth-child(2)": "I turn ideas into distinctive visuals, from social media designs to videos for content and promotional projects.", ".expertise > div:first-child h3": "Graphic Design", ".availability": "<i></i> Open to collaboration", ".contact-body h2": "Have an idea?<br><span>Let’s create it.</span>", ".contact-circle": "<span>↗</span>Let’s talk", ".contact-bottom p": "For job opportunities, creative projects,<br>or stories waiting to be visualized.", ".footer-bottom > a": "Back to top ↑", "#media-error": "Unable to load this media. Check your connection and try opening it again.", "#youtube-fallback": "If the player is unavailable, watch on YouTube ↗"};
   const videoPage = document.body.dataset.portfolio === 'video';
   english['#work-heading'] = videoPage ? 'VIDEO EDITING' : '<span class="social-media-title">SOCIAL MEDIA</span><span class="social-media-script">Design</span>';
@@ -29,7 +36,7 @@
     language = next === 'en' ? 'en' : 'id';
     document.documentElement.lang = language;
     for (const [selector, original] of originals) {
-      document.querySelector(selector).innerHTML = language === 'en' ? english[selector] : original;
+      document.querySelector(selector).innerHTML = withArrows(language === 'en' ? english[selector] : original);
     }
     for (const [selector, attribute, id, en] of attributes) document.querySelector(selector)?.setAttribute(attribute, language === 'en' ? en : id);
     document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === language)));
