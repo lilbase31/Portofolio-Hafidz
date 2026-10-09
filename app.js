@@ -15,16 +15,9 @@
   // A deliberate mix of landscape film, design and vertical editing in the first view.
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
-  const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => rank(a) - rank(b));
+  const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
   const label = p => p.type === 'video' ? 'Video Editing' : t('design');
-  function render() {
-  document.querySelectorAll('[data-filter]').forEach(button => {
-    button.querySelector('small').textContent = String(projects.filter(p => button.dataset.filter === 'all' || p.category === button.dataset.filter).length);
-  });
-
-    const list = projects.filter(p => filter === 'all' || p.category === filter);
-    grid.replaceChildren();
-    list.slice(0,limit).forEach((p,i) => {
+  function createProjectCard(p,i) {
       const card = document.createElement('button');
       card.type = 'button';
       card.className = `project card-enter ${p.type === 'video' ? 'video' : ''} ${p.height > p.width ? 'vertical' : ''} ${p.type === 'video' && p.width > p.height ? 'wide' : ''}`;
@@ -47,34 +40,33 @@
         const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.tag || (p.height>p.width?'SHORT FORM':'CINEMATIC');
         card.append(play,tag);
       }
-      card.addEventListener('click',()=>openProject(p,card)); grid.append(card);
-    });
-    if (filter === 'design') requestAnimationFrame(updateGalleryCurve);
-    more.hidden=limit>=list.length;
-    document.querySelector('#project-count').textContent=`${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
-    document.querySelector('#result-status').textContent=`${list.length} ${t('available')}${filter==='all'?'':filter==='design'?' · '+t('design'):' · Video Editing'}`;
+      card.addEventListener('click',()=>openProject(p,card)); return card;
+
   }
-  let galleryTicking = false;
-  function updateGalleryCurve() {
-    galleryTicking = false;
-    if (filter !== 'design') return;
-    const width = grid.clientWidth;
-    if (!width) return;
-    for (const card of grid.children) {
-      const offset = Math.max(-1, Math.min(1, (card.offsetLeft + card.offsetWidth / 2 - grid.scrollLeft - width / 2) / (width / 2)));
-      card.style.setProperty('--gallery-yaw', `${-offset * 30}deg`);
-      card.style.setProperty('--gallery-lift', `${-Math.abs(offset) * 52}px`);
-      card.style.setProperty('--gallery-scale', String(1 + Math.abs(offset) * .1));
-    }
+  function render() {
+    const list = projects.filter(p => filter === 'all' || p.category === filter);
+    grid.replaceChildren();
+    const stories = document.querySelector('#story-projects');
+    if (filter === 'design' && stories) {
+      stories.replaceChildren();
+      list.forEach((p,i) => {
+        const card = createProjectCard(p,i);
+        const story = Math.abs(p.width / p.height - 9 / 16) < .02;
+        if (story) {
+          const phone = document.createElement('div');
+          phone.className = 'phone-mockup';
+          card.classList.add('phone-screen');
+          const speaker = document.createElement('span');
+          speaker.className = 'phone-speaker'; speaker.setAttribute('aria-hidden','true');
+          phone.append(card,speaker); stories.append(phone);
+        } else grid.append(card);
+      });
+    } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
+    if (more) more.hidden = limit >= list.length;
+    const count = document.querySelector('#project-count');
+    if (count) count.textContent = `${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
+    document.querySelector('#result-status').textContent = `${list.length} ${t('available')}${filter==='design'?' · '+t('design'):filter==='video'?' · Video Editing':''}`;
   }
-  function scheduleGalleryCurve() {
-    if (galleryTicking) return;
-    galleryTicking = true;
-    requestAnimationFrame(updateGalleryCurve);
-  }
-  grid.addEventListener('scroll', scheduleGalleryCurve, {passive:true});
-  addEventListener('resize', scheduleGalleryCurve);
-  document.querySelectorAll('[data-gallery-direction]').forEach(button => button.addEventListener('click', () => grid.scrollBy({left:Number(button.dataset.galleryDirection) * grid.clientWidth * .65, behavior:reduced.matches?'instant':'smooth'})));
   function openProject(p,trigger) {
     dialog.dataset.projectId=p.id;
     clearTimeout(closeTimer); dialog.classList.remove('closing'); opener=trigger;
@@ -114,7 +106,7 @@
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeProject();}});
   document.querySelector('#close-dialog').addEventListener('click',closeProject);
   document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.filter;limit=8;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();}));
-  more.addEventListener('click',()=>{const previous=grid.children.length;limit+=8;render();grid.children[previous]?.focus({preventScroll:true});});
+  more?.addEventListener('click',()=>{const previous=grid.children.length;limit+=8;render();grid.children[previous]?.focus({preventScroll:true});});
   function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label',t('openMenu'));navigation.classList.remove('open');}
   menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?t('closeMenu'):t('openMenu'));navigation.classList.toggle('open',open);});
   navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));

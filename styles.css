@@ -185,3 +185,27 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .design-showcase .project{flex:0 0 clamp(200px,19vw,290px);aspect-ratio:var(--design-ratio,1);height:auto;align-self:center;border-radius:10px;box-shadow:0 20px 35px #000b,0 7px 24px #80002045,0 0 0 1px #ffffff0d;background:#090909}
 .design-showcase .project img{object-fit:contain;width:100%;height:100%}
 @media(max-width:650px){#work-heading .social-media-title{font-size:clamp(42px,11.5vw,72px)}#work-heading .social-media-script{font-size:53px}.design-showcase .project{flex-basis:210px}.design-showcase .projects{padding-top:85px;padding-bottom:55px}}
+
+/* Social Media Design follows the supplied sketch: feed, process, phone. */
+.social-sketch .work-heading{margin-bottom:55px}
+.social-design-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr) minmax(0,.8fr);gap:clamp(24px,3vw,48px);align-items:start}
+.social-sketch .feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0;overflow:visible;perspective:none;align-items:start}
+.social-sketch .project{width:100%;min-width:0;flex:none;grid-column:auto;aspect-ratio:var(--design-ratio,1);border-radius:4px;transform:none;will-change:auto;box-shadow:0 12px 25px #000a,0 5px 18px #80002025;animation:none}
+.social-sketch .project img{width:100%;height:100%;object-fit:contain}
+.social-sketch .project-info{left:10px;right:10px;bottom:10px}
+.social-sketch .project-info strong{font-size:10px}
+.social-sketch .project-info small{font-size:8px}
+.design-process{font-family:Poppins,Arial,sans-serif;font-weight:300;padding-top:20px}
+.design-process h3{font-size:clamp(21px,2vw,28px);line-height:1.35;font-weight:500;letter-spacing:-.035em;margin:18px 0 22px}
+.design-process p{font-size:12px;line-height:1.9;color:#bdb2b5;margin:0 0 20px}
+.story-mockups{display:flex;flex-direction:column;align-items:center;gap:40px;padding:45px 15px 50px}
+.phone-mockup{position:relative;width:min(100%,255px);padding:8px;border:2px solid #81787c;border-radius:32px;background:linear-gradient(135deg,#5b5257,#0a0809 28%,#352d32 75%,#7a6a73);box-shadow:12px 20px 0 -8px #261920,20px 28px 40px #000b,0 5px 35px #80002055;transform:rotate(13deg)}
+.social-sketch .phone-screen{display:block;aspect-ratio:9/16;border-radius:23px;overflow:hidden;background:#000;box-shadow:none}
+.phone-speaker{position:absolute;top:11px;left:50%;width:48px;height:7px;transform:translateX(-50%);border-radius:8px;background:#0a080a;box-shadow:0 0 0 1px #ffffff12;pointer-events:none}
+.social-sketch .next-portfolio{margin-top:55px}
+@media(max-width:1000px){.social-design-layout{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:35px}.design-process{grid-column:2;grid-row:1}.story-mockups{grid-column:2;grid-row:1;margin-top:330px}.feed-grid{grid-column:1;grid-row:1}.phone-mockup{width:min(90%,230px)}}
+@media(max-width:650px){.social-sketch .work-heading{margin-bottom:35px}.social-design-layout{grid-template-columns:1fr;gap:35px}.social-sketch .feed-grid{grid-column:1;grid-row:auto;gap:9px}.design-process{grid-column:1;grid-row:auto;padding:0;max-width:480px}.design-process h3{font-size:25px}.design-process p{font-size:12px}.story-mockups{grid-column:1;grid-row:auto;margin-top:0;padding:12px 35px 35px}.phone-mockup{width:min(80%,230px)}.social-sketch .project-info strong{font-size:8px}.social-sketch .project-info small{display:none}}
+
+.social-design-details{display:contents}
+@media(max-width:1000px){.social-design-details{display:flex;flex-direction:column;gap:28px;grid-column:2;grid-row:1;min-width:0}.social-design-details .story-mockups{margin-top:0}.social-design-details .design-process{padding-top:0}}
+@media(max-width:650px){.social-design-details{grid-column:1;grid-row:auto;gap:25px}}
