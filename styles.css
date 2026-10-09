@@ -350,3 +350,14 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 @media(max-width:1000px){.experience-layout{grid-template-columns:1fr;gap:38px}.experience{min-height:0;padding-top:85px;padding-bottom:85px}.experience #experience-heading{font-size:64px}.experience #experience-heading br{display:none}.experience-place h3{font-size:23px}}
 @media(max-width:650px){.experience{padding-top:65px;padding-bottom:70px}.experience-layout{gap:30px}.experience #experience-heading{font-size:clamp(35px,9vw,51px)}.experience-entry{padding:25px 0;gap:16px}.experience-place h3{font-size:18px}.experience-place p{font-size:10px}.experience-duration{font-size:10px}}
 @media(max-width:380px){.experience-entry{grid-template-columns:1fr;gap:12px}.experience-duration{text-align:left}}
+
+/* Separate positions retain their own dates and duration, followed by education. */
+.experience{display:block}
+.experience-meta{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.experience-company-years{font-family:Poppins,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:.025em;white-space:nowrap;color:#fdfae3}
+.experience-place p.experience-role{font-size:13px;color:#e0d4d8;font-weight:400;line-height:1.65;margin:0 0 8px}
+.education-layout{margin-top:80px}
+.experience #education-heading{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:clamp(35px,4vw,56px);font-weight:400;line-height:1.1;letter-spacing:-.025em;margin:0;color:#fdfae3}
+.education-layout .experience-entry{padding:24px 0}
+@media(max-width:650px){.experience-place p.experience-role{font-size:11px}.experience-company-years{font-size:10px}.education-layout{margin-top:55px}.experience #education-heading{font-size:35px}.experience-meta{gap:8px}}
+@media(max-width:380px){.experience-meta{flex-direction:row;align-items:center;justify-content:space-between}}
