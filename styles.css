@@ -335,3 +335,18 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 /* SVG arrows keep the same appearance on iOS, Android and desktop. */
 .ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.12em;flex-shrink:0;overflow:visible}
 .feed-carousel-arrow .ui-arrow{width:18px;height:18px;vertical-align:middle}
+
+/* Work experience is a quiet editorial page within the About chapter. */
+.experience{position:relative;min-height:65svh;display:flex;align-items:center;padding-top:110px;padding-bottom:110px}
+.experience-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.45fr);gap:clamp(40px,7vw,110px);align-items:start;width:100%}
+.experience #experience-heading{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:clamp(45px,5.5vw,78px);font-weight:400;letter-spacing:-.025em;line-height:1.08;margin:0;color:#fdfae3}
+.experience-list{list-style:none;margin:4px 0 0;padding:0;font-family:Poppins,Arial,sans-serif}
+.experience-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:32px 0;border-top:1px solid #ffffff25;position:relative}
+.experience-entry:last-child{border-bottom:1px solid #ffffff25}
+.experience-entry::before{content:"";position:absolute;left:0;top:-1px;width:46px;height:2px;background:#800020}
+.experience-place h3{font-size:clamp(18px,1.7vw,25px);font-weight:500;letter-spacing:-.025em;line-height:1.45;margin:0 0 10px}
+.experience-place p{font-size:12px;font-weight:300;line-height:1.7;color:#b1a6a9;margin:0}
+.experience-duration{font-size:12px;font-weight:500;color:#d4a0ae;white-space:nowrap;text-align:right}
+@media(max-width:1000px){.experience-layout{grid-template-columns:1fr;gap:38px}.experience{min-height:0;padding-top:85px;padding-bottom:85px}.experience #experience-heading{font-size:64px}.experience #experience-heading br{display:none}.experience-place h3{font-size:23px}}
+@media(max-width:650px){.experience{padding-top:65px;padding-bottom:70px}.experience-layout{gap:30px}.experience #experience-heading{font-size:clamp(35px,9vw,51px)}.experience-entry{padding:25px 0;gap:16px}.experience-place h3{font-size:18px}.experience-place p{font-size:10px}.experience-duration{font-size:10px}}
+@media(max-width:380px){.experience-entry{grid-template-columns:1fr;gap:12px}.experience-duration{text-align:left}}

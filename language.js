@@ -22,6 +22,9 @@
   english['.design-process h3'] = 'From ideas<br>to visuals.';
   english['.design-process p:first-of-type'] = 'I start by understanding the content goals, brand character, and audience. I turn ideas into visual concepts, then refine composition, typography, color, and imagery so the message is easy to understand.';
   english['.design-process p:last-of-type'] = 'Each design is adapted to feed or story formats, with a consistent look and ready to publish.';
+  english['#experience-nona-period'] = '<time datetime="2023-06">June 2023</time> — <time datetime="2026-07">July 2026</time>';
+  english['#experience-nona-duration'] = '3 years 2 months';
+  english['#experience-freelance-period'] = '<time datetime="2021-10">October 2021</time> — Present';
   const dynamic = {"previousVideos": ["Video sebelumnya", "Previous videos"], "nextVideos": ["Video berikutnya", "Next videos"], "socialComposition": ["Komposisi mockup desain media sosial", "Social media design mockup composition"], "previousDesigns": ["Desain sebelumnya", "Previous designs"], "nextDesigns": ["Desain berikutnya", "Next designs"], "design": ["Desain Grafis", "Graphic Design"], "play": ["Putar", "Play"], "view": ["Lihat", "View"], "works": ["KARYA", "PROJECTS"], "available": ["karya tersedia", "projects available"], "openMenu": ["Buka menu", "Open menu"], "closeMenu": ["Tutup menu", "Close menu"]};
   const attributes = [["#story-projects", "aria-label", "Desain story dalam mockup ponsel", "Story designs in phone mockups"],["#projects", "aria-label", "Galeri karya", "Project gallery"], ['[data-gallery-direction="-1"]', "aria-label", "Desain sebelumnya", "Previous designs"], ['[data-gallery-direction="1"]', "aria-label", "Desain berikutnya", "Next designs"],[".about-seated img", "alt", "Hafidz Aulia Rachman dengan jaket burgundy dari sudut tiga perempat", "Hafidz Aulia Rachman wearing a burgundy jacket in a three-quarter portrait"],[".about-portrait img", "alt", "Hafidz Aulia Rachman dari sudut tiga perempat dengan jaket kulit burgundy", "Hafidz Aulia Rachman in a three-quarter portrait wearing a burgundy leather jacket"],[".brand", "aria-label", "Hafidz, beranda", "Hafidz, home"], ["#navigation", "aria-label", "Navigasi utama", "Main navigation"], [".filters", "aria-label", "Filter karya", "Filter projects"], ["#close-dialog", "aria-label", "Tutup preview", "Close preview"], [".contact-circle", "aria-label", "Kirim email untuk kolaborasi", "Email to collaborate"], [".portrait", "alt", "Hafidz Aulia Rachman mengenakan jaket kulit burgundy gelap", "Hafidz Aulia Rachman wearing a dark burgundy leather jacket"]];
   const originals = new Map();
@@ -40,6 +43,16 @@
     }
     for (const [selector, attribute, id, en] of attributes) document.querySelector(selector)?.setAttribute(attribute, language === 'en' ? en : id);
     document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === language)));
+    const freelanceDuration = document.querySelector('#freelance-duration');
+    if (freelanceDuration) {
+      const today = new Date();
+      const totalMonths = Math.max(0,(today.getFullYear()-2021)*12+today.getMonth()-9);
+      const years = Math.floor(totalMonths/12), months = totalMonths%12;
+      const parts = [];
+      if (years) parts.push(`${years} ${language==='en' ? years===1?'year':'years' : 'tahun'}`);
+      if (months) parts.push(`${months} ${language==='en' ? months===1?'month':'months' : 'bulan'}`);
+      freelanceDuration.textContent = parts.join(' ') || (language==='en'?'Less than 1 month':'Kurang dari 1 bulan');
+    }
     const menu = document.querySelector('.menu-toggle');
     menu.setAttribute('aria-label', t(menu.getAttribute('aria-expanded') === 'true' ? 'closeMenu' : 'openMenu'));
     const word = document.querySelector('.hero-word text');
