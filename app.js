@@ -73,31 +73,16 @@
     track.addEventListener('scroll',update,{passive:true});
     carousel.append(track,controls); requestAnimationFrame(update); return carousel;
   }
-  function createSocialComposition(list) {
-    const composition = document.createElement('div');
-    composition.className = 'social-composition';
-    composition.setAttribute('role','group'); composition.setAttribute('aria-label',t('socialComposition'));
-    const canvas = document.createElement('div'); canvas.className = 'composition-canvas'; composition.append(canvas);
-    const find = id => list.find(p => p.id.endsWith('/'+id));
-    for (const [id,position] of [['jagonya-kretek','left'],['s-nya-apa','left-bottom'],['varian-mangga','top'],['3pk-nikmatnya','bottom'],['feed-2','upper']]) {
-      const project = find(id); if (!project) continue;
-      const card = createProjectCard(project,0);
-      card.classList.add('composition-tile',`composition-tile-${position}`);
-      canvas.append(card);
-    }
-    const featured = find('paper-favo');
-    if (featured) {
-      const panel = document.createElement('div'); panel.className = 'composition-instagram';
-      const header = document.createElement('div'); header.className = 'composition-header';
-      header.innerHTML = '<span>Instagram</span><span aria-hidden="true">♡</span>';
-      const brand = document.createElement('div'); brand.className = 'composition-brand';
-      brand.innerHTML = '<span class="composition-avatar" aria-hidden="true">3P</span><span>Tiga Putri Group</span><span aria-hidden="true">···</span>';
-      const card = createProjectCard(featured,0); card.classList.add('composition-post');
-      const footer = document.createElement('div'); footer.className = 'composition-footer';
-      footer.setAttribute('aria-hidden','true');
-      footer.innerHTML = '<svg viewBox="0 0 80 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 15S1 10 1 5a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 10-7 10Z"/><path d="M32 12a6 6 0 1 0-4 2l-4 2 1-5"/><path d="m44 3 14-2-6 14-2-6-6-6Zm6 6 8-8"/><path d="M69 2h9v13l-4.5-3-4.5 3Z"/></svg><span class="composition-home-bar"></span>';
-      panel.append(header,brand,card,footer); canvas.append(panel);
-    }
+  function createSocialComposition() {
+    const asset = {id:'instagram-deck',title:'Instagram Deck · tigaputricreative',type:'image',category:'design',width:1536,height:1024,src:'assets/instagram-deck-tigaputricreative.webp'};
+    const composition = document.createElement('button');
+    composition.type = 'button'; composition.className = 'social-composition instagram-deck';
+    composition.setAttribute('aria-label',`${t('view')} ${asset.title}`);
+    const image = document.createElement('img');
+    image.src = asset.src; image.alt = 'Instagram deck mockup · tigaputricreative';
+    image.width = asset.width; image.height = asset.height; image.loading = 'lazy'; image.decoding = 'async';
+    composition.append(image);
+    composition.addEventListener('click',()=>openProject(asset,composition));
     return composition;
   }
   function render() {
@@ -139,7 +124,7 @@
         }
       });
       const compositionHost = document.querySelector('#social-composition-host');
-      if (compositionHost) { compositionHost.replaceChildren(); compositionHost.append(createSocialComposition(list)); }
+      if (compositionHost) { compositionHost.replaceChildren(); compositionHost.append(createSocialComposition()); }
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
     if (more) more.hidden = limit >= list.length;
     const count = document.querySelector('#project-count');
