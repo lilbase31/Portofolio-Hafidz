@@ -15,7 +15,7 @@
   // A deliberate mix of landscape film, design and vertical editing in the first view.
   const preferred = ['IBXJGuySfq4', 'LRmsrFJLTvc', 'cinematic-05', 'combo-coffee', 'the-taste-of-tradition', 'talkinghead-03', 'its-jago-time', 'dari-ladang-ke-lintingan', 'cinematic-03', 'teka-teki-mewah'];
   const rank = p => { const i = preferred.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
-  // The five screenshot designs lead; the two tradition designs share row three.
+  // Keep the screenshot order within each format; feature the tradition pair together.
   const feedOrder = ['jagonya-kretek', 'paper-favo', 'varian-mangga', 's-nya-apa', '3pk-nikmatnya', 'feed-2', 'dari-ladang-ke-lintingan', 'the-taste-of-tradition', 'its-jago-time', 'teka-teki-mewah', 'tot-mewah'];
   const feedRank = p => { const i = feedOrder.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
   const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? feedRank(a) - feedRank(b) || Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
@@ -52,6 +52,14 @@
     const stories = document.querySelector('#story-projects');
     if (filter === 'design' && stories) {
       stories.replaceChildren();
+      const groups = {};
+      for (const format of ['portrait', 'square', 'editorial']) {
+        const group = document.createElement('div');
+        group.className = `feed-group feed-group-${format}`;
+        group.setAttribute('role', 'group');
+        group.setAttribute('aria-label', format === 'portrait' ? 'Feed 4:5' : format === 'square' ? 'Feed 1:1' : 'Dari Ladang ke Lintingan · The Taste of Tradition');
+        groups[format] = group; grid.append(group);
+      }
       list.forEach((p,i) => {
         const card = createProjectCard(p,i);
         const story = Math.abs(p.width / p.height - 9 / 16) < .02;
@@ -71,7 +79,10 @@
             phone.append(card,speaker);
           }
           stories.append(phone);
-        } else grid.append(card);
+        } else {
+          const editorial = ['dari-ladang-ke-lintingan', 'the-taste-of-tradition'].includes(p.id.split('/').pop());
+          groups[editorial ? 'editorial' : p.height > p.width ? 'portrait' : 'square'].append(card);
+        }
       });
     } else list.slice(0,limit).forEach((p,i) => grid.append(createProjectCard(p,i)));
     if (more) more.hidden = limit >= list.length;

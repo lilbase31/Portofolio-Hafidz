@@ -218,3 +218,21 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .social-sketch .phone-render img{object-fit:contain;transform:none}
 .phone-render .project-info{display:none}
 @media(prefers-reduced-motion:reduce){.social-sketch .phone-render{transition:none}.social-sketch .phone-render:hover{translate:none}}
+
+/* Grouped feed formats share one column rhythm; the final pair is larger. */
+.social-sketch .feed-grid{display:flex;flex-direction:column;gap:24px;align-items:stretch}
+.feed-group{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start;width:100%}
+.feed-group-editorial{grid-template-columns:repeat(2,minmax(0,1fr))}
+.social-sketch .feed-group .project{align-self:start}
+.social-design-layout{grid-template-columns:minmax(0,1.65fr) minmax(0,.72fr) minmax(0,.85fr);gap:clamp(24px,2.7vw,42px)}
+.social-design-details .design-process{padding-top:24px}
+.social-design-details .story-mockups{padding:14px 0 28px;align-self:start}
+.phone-mockup.iphone-art{width:min(100%,310px)}
+.iphone-art::before{inset:10% -8% -2%;background:radial-gradient(ellipse at 50% 65%,#80002055,transparent 72%)}
+.social-sketch .phone-render{filter:drop-shadow(0 22px 22px #000c) drop-shadow(0 0 20px #80002065)}
+.social-sketch .phone-render:hover{filter:drop-shadow(0 27px 24px #000c) drop-shadow(0 0 24px #80002080)}
+@media(max-width:1000px){.social-design-layout{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:32px}.social-design-details .design-process{padding-top:0}.social-design-details .story-mockups{align-self:center;width:100%;padding-top:0}.phone-mockup.iphone-art{width:min(90%,280px)}}
+@media(max-width:650px){.social-design-layout{grid-template-columns:1fr;gap:36px}.social-sketch .feed-grid{gap:20px}.feed-group{gap:9px}.social-design-details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:20px;align-items:center}.social-design-details .design-process h3{font-size:22px}.social-design-details .design-process p{font-size:11px;line-height:1.8}.social-design-details .story-mockups{padding:0}.phone-mockup.iphone-art{width:100%}}
+@media(max-width:380px){.social-design-details{grid-template-columns:1fr}.phone-mockup.iphone-art{width:min(75%,250px)}}
+
+@media(max-width:650px){.social-design-details .design-process,.social-design-details .story-mockups{grid-column:auto;grid-row:auto}}
