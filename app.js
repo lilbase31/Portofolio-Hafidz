@@ -20,19 +20,15 @@
   const feedRank = p => { const i = feedOrder.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
   const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? feedRank(a) - feedRank(b) || Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
   const label = p => p.type === 'video' ? t('videoEditing') : t('design');
-  const projectTitle = p => {
-    if (p.tag === 'DOKUMENTER') return t('documentary');
-    if (p.tag === 'PODCAST') return t('podcast');
-    if (window.portfolioLanguage.current === 'id' && p.type === 'video') return p.title.replace('Talkinghead Shortform','Video Pendek Talking Head').replace('Cinematic Short Movie','Film Pendek Sinematik');
-    return p.title;
-  };
+  const videoClassification = p => p.tag === 'DOKUMENTER' ? t('documentaryLabel') : p.tag === 'PODCAST' ? t('podcastLabel') : t(p.height>p.width?'shortform':'cinematic');
+  const projectTitle = p => p.type === 'video' ? videoClassification(p) : p.title;
   function createProjectCard(p,i) {
       const card = document.createElement('button');
       card.type = 'button';
       card.className = `project card-enter ${p.type === 'video' ? 'video' : ''} ${p.height > p.width ? 'vertical' : ''} ${p.type === 'video' && p.width > p.height ? 'wide' : ''}`;
       card.style.setProperty('--delay', `${Math.min(i,5)*45}ms`);
       if (p.category === 'design') card.style.setProperty('--design-ratio', `${p.width} / ${p.height}`);
-      card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${projectTitle(p)}`);
+      card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${projectTitle(p)}${p.type === 'video' ? ` ${i+1}` : ''}`);
       const img = document.createElement('img');
       img.src = p.thumbnail; img.alt = projectTitle(p); img.loading = 'lazy'; img.decoding = 'async';
       img.width = p.width; img.height = p.height;
@@ -43,10 +39,10 @@
       const category = document.createElement('small'); category.textContent=label(p);
       const title = document.createElement('strong'); title.textContent=projectTitle(p);
       const arrow = document.createElement('span'); arrow.innerHTML=window.portfolioIcons.arrow('↗'); arrow.setAttribute('aria-hidden','true');
-      infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);
+      if (p.type !== 'video') {infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);}
       if(p.type === 'video') {
         const play=document.createElement('span'); play.className='play'; play.textContent='▶'; play.setAttribute('aria-hidden','true');
-        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.tag === 'DOKUMENTER' ? t('documentary') : p.tag || t(p.height>p.width?'shortform':'cinematic');
+        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=videoClassification(p);
         card.append(play,tag);
       }
       card.addEventListener('click',()=>openProject(p,card)); return card;

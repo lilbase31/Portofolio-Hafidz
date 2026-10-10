@@ -297,7 +297,7 @@ window.PORTFOLIO = {
       "category": "video",
       "tag": "DOKUMENTER",
       "src": "https://www.youtube.com/watch?v=IBXJGuySfq4",
-      "thumbnail": "https://i.ytimg.com/vi/IBXJGuySfq4/hqdefault.jpg",
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1791619023/portfolio/video-covers/documentary.jpg",
       "width": 1280,
       "height": 720
     },
@@ -310,7 +310,7 @@ window.PORTFOLIO = {
       "category": "video",
       "tag": "PODCAST",
       "src": "https://www.youtube.com/watch?v=LRmsrFJLTvc",
-      "thumbnail": "https://i.ytimg.com/vi/LRmsrFJLTvc/hqdefault.jpg",
+      "thumbnail": "https://res.cloudinary.com/klbb6kew/image/upload/v1791619018/portfolio/video-covers/podcast.jpg",
       "width": 1280,
       "height": 720
     }

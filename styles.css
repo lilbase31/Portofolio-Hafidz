@@ -398,3 +398,16 @@ footer::before{content:"";position:absolute;inset:-240px -5vw 0;z-index:-1;point
 .creative-script{top:24px;line-height:1.5;padding:.18em .28em;white-space:nowrap}
 @media(max-width:1000px){.creative-script{top:22px}}
 @media(max-width:650px){.creative-script{top:18px}}
+
+/* A single background includes the footer; no separate gradient rectangles. */
+html{overflow-x:clip}
+body{background-color:#000;background-image:radial-gradient(ellipse 90% 850px at 100% 21%,#4f1023a0,transparent 78%),radial-gradient(ellipse 75% 900px at 0% 47%,#390b1870,transparent 80%),radial-gradient(ellipse 85% 900px at 100% 73%,#4f102385,transparent 80%),radial-gradient(ellipse 90% 1100px at 100% 100%,#631126a0,transparent 80%);background-repeat:no-repeat}
+main::before,footer::before{content:none}
+.video-showcase .video-heading,.video-showcase .work-heading{display:flex;justify-content:center;align-items:center;text-align:center;width:100%;margin-bottom:24px}
+.video-process-intro{max-width:780px;margin:0 auto 58px;text-align:center;font-family:Poppins,Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.9;color:#c2b9bd}
+.video-category-heading{margin-bottom:14px}
+.video-category-description{max-width:850px;margin:0 0 30px;font-family:Poppins,Arial,sans-serif;font-weight:300;font-size:14px;line-height:1.9;color:#c2b9bd}
+.software-card span{font-size:12px;line-height:1.5}
+.experience-place p{font-size:14px!important;line-height:1.8}
+.experience-company-years,.experience-duration{font-size:13px!important}
+@media(max-width:650px){body{background-image:radial-gradient(ellipse 150% 900px at 100% 18%,#4f102385,transparent 80%),radial-gradient(ellipse 140% 900px at 0% 44%,#390b1870,transparent 80%),radial-gradient(ellipse 140% 1000px at 100% 72%,#4f102375,transparent 80%),radial-gradient(ellipse 150% 1100px at 100% 100%,#63112690,transparent 80%)}.video-process-intro{font-size:13px;margin-bottom:40px}.video-category-description{font-size:13px;margin-bottom:24px}.software-card span{font-size:11px}.experience-place p{font-size:12px!important}.experience-company-years,.experience-duration{font-size:12px!important}}
