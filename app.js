@@ -41,7 +41,7 @@
       const arrow = document.createElement('span'); arrow.innerHTML=window.portfolioIcons.arrow('↗'); arrow.setAttribute('aria-hidden','true');
       if (p.type !== 'video') {infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);}
       if(p.type === 'video') {
-        const play=document.createElement('span'); play.className='play'; play.textContent='▶'; play.setAttribute('aria-hidden','true');
+        const play=document.createElement('span'); play.className='play'; play.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7Z" fill="currentColor"/></svg>'; play.setAttribute('aria-hidden','true');
         const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=videoClassification(p);
         card.append(play,tag);
       }
