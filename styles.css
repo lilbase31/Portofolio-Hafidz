@@ -373,3 +373,23 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .contact-bottom{margin-top:55px}
 @media(max-width:900px){.contact-body{grid-template-columns:1fr}.contact-connect{min-width:0;width:fit-content;padding-right:24px}.contact-body h2{font-size:clamp(44px,8vw,72px)}}
 @media(max-width:650px){.contact-body{gap:35px}.contact-body h2{font-size:clamp(36px,8.8vw,57px)}.contact-connect h3{font-size:20px;margin-bottom:20px}.contact-bottom{margin-top:35px}}
+
+/* One continuous canvas: edge light flows across section boundaries. */
+main{position:relative;isolation:isolate;overflow:clip}
+main::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 90% 850px at 100% 21%,#4f1023a0,transparent 78%),radial-gradient(ellipse 75% 900px at 0% 47%,#390b1870,transparent 80%),radial-gradient(ellipse 85% 900px at 100% 73%,#4f102385,transparent 80%),radial-gradient(ellipse 90% 750px at 100% 100%,#631126a0,transparent 80%)}
+.portfolio-chapter .about::after,#video-work::before,body[data-portfolio="video"] .work::before{content:none}
+.portfolio-chapter{isolation:auto}
+.hero::before{inset:-80px -6vw -180px;mask-image:none;-webkit-mask-image:none;background:radial-gradient(ellipse 48% 50% at 50% 40%,#631126,#390b17 37%,#16050a80 65%,transparent 100%)}
+.hero-bottom{border-bottom:0}
+.contact{position:relative}
+footer{position:relative;isolation:isolate;border-top:0}
+footer::before{content:"";position:absolute;inset:-240px -5vw 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 85% 100% at 100% 100%,#63112690,transparent 80%)}
+.hero-word text{letter-spacing:0!important}
+.portrait{clip-path:none}
+.portrait-wrap{mask-image:linear-gradient(#000 65%,transparent 99%);-webkit-mask-image:linear-gradient(#000 65%,transparent 99%)}
+.about-seated img{mask-image:linear-gradient(#000 60%,transparent 98%);-webkit-mask-image:linear-gradient(#000 60%,transparent 98%)}
+@media(max-width:650px){.hero::before{inset:-50px -6vw -160px;background:radial-gradient(ellipse 85% 55% at 50% 32%,#631126,#390b17 37%,#16050a80 65%,transparent 100%)}main::before{background:radial-gradient(ellipse 150% 900px at 100% 18%,#4f102385,transparent 80%),radial-gradient(ellipse 140% 900px at 0% 44%,#390b1870,transparent 80%),radial-gradient(ellipse 140% 1000px at 100% 72%,#4f102375,transparent 80%),radial-gradient(ellipse 150% 750px at 100% 100%,#63112690,transparent 80%)}}
+
+/* Restored alpha edges need no polygon clipping; fade only the lower torso. */
+.portrait{clip-path:none;mask-image:none;-webkit-mask-image:none}
+.portrait-wrap{mask-image:linear-gradient(#000 62%,transparent 100%);-webkit-mask-image:linear-gradient(#000 62%,transparent 100%)}

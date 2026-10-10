@@ -19,28 +19,34 @@
   const feedOrder = ['jagonya-kretek', 'paper-favo', 'varian-mangga', 's-nya-apa', '3pk-nikmatnya', 'feed-2', 'dari-ladang-ke-lintingan', 'the-taste-of-tradition', 'its-jago-time', 'teka-teki-mewah', 'tot-mewah'];
   const feedRank = p => { const i = feedOrder.indexOf(p.id.split('/').pop()); return i < 0 ? 100 : i; };
   const projects = data.projects.filter(p => p.category !== 'design' || !document.body.dataset.collection || p.collection === document.body.dataset.collection).sort((a,b) => filter === 'design' ? feedRank(a) - feedRank(b) || Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0) : rank(a) - rank(b));
-  const label = p => p.type === 'video' ? 'Video Editing' : t('design');
+  const label = p => p.type === 'video' ? t('videoEditing') : t('design');
+  const projectTitle = p => {
+    if (p.tag === 'DOKUMENTER') return t('documentary');
+    if (p.tag === 'PODCAST') return t('podcast');
+    if (window.portfolioLanguage.current === 'id' && p.type === 'video') return p.title.replace('Talkinghead Shortform','Video Pendek Talking Head').replace('Cinematic Short Movie','Film Pendek Sinematik');
+    return p.title;
+  };
   function createProjectCard(p,i) {
       const card = document.createElement('button');
       card.type = 'button';
       card.className = `project card-enter ${p.type === 'video' ? 'video' : ''} ${p.height > p.width ? 'vertical' : ''} ${p.type === 'video' && p.width > p.height ? 'wide' : ''}`;
       card.style.setProperty('--delay', `${Math.min(i,5)*45}ms`);
       if (p.category === 'design') card.style.setProperty('--design-ratio', `${p.width} / ${p.height}`);
-      card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${p.title}`);
+      card.setAttribute('aria-label', `${p.type === 'video' ? t('play') : t('view')} ${projectTitle(p)}`);
       const img = document.createElement('img');
-      img.src = p.thumbnail; img.alt = p.title; img.loading = 'lazy'; img.decoding = 'async';
+      img.src = p.thumbnail; img.alt = projectTitle(p); img.loading = 'lazy'; img.decoding = 'async';
       img.width = p.width; img.height = p.height;
-      img.addEventListener('error', () => {img.hidden = true; const fallback = document.createElement('span'); fallback.className='asset-fallback'; fallback.textContent=p.title; card.prepend(fallback);}, {once:true});
+      img.addEventListener('error', () => {img.hidden = true; const fallback = document.createElement('span'); fallback.className='asset-fallback'; fallback.textContent=projectTitle(p); card.prepend(fallback);}, {once:true});
       card.append(img);
       const info = document.createElement('span'); info.className = 'project-info';
       const infoCopy = document.createElement('span');
       const category = document.createElement('small'); category.textContent=label(p);
-      const title = document.createElement('strong'); title.textContent=p.title;
+      const title = document.createElement('strong'); title.textContent=projectTitle(p);
       const arrow = document.createElement('span'); arrow.innerHTML=window.portfolioIcons.arrow('↗'); arrow.setAttribute('aria-hidden','true');
       infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);
       if(p.type === 'video') {
         const play=document.createElement('span'); play.className='play'; play.textContent='▶'; play.setAttribute('aria-hidden','true');
-        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.tag || (p.height>p.width?'SHORT FORM':'CINEMATIC');
+        const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=p.tag === 'DOKUMENTER' ? t('documentary') : p.tag || t(p.height>p.width?'shortform':'cinematic');
         card.append(play,tag);
       }
       card.addEventListener('click',()=>openProject(p,card)); return card;
@@ -116,7 +122,7 @@
           if (p.mockup) {
             const image = card.querySelector('img');
             image.src = p.mockup; image.width = 840; image.height = 1260;
-            image.alt = `${p.title} — iPhone 17 mockup`;
+            image.alt = `${projectTitle(p)} — iPhone 17 mockup`;
             card.classList.add('phone-render');
             phone.append(card);
           } else {
@@ -140,24 +146,24 @@
     if (inlineVideos && document.body.dataset.portfolio === 'design') {
       const videos = projects.filter(p=>p.category==='video').sort((a,b)=>rank(a)-rank(b));
       renderVideoGallery(inlineVideos,document.querySelector('#video-shortform-carousel'),document.querySelector('#video-other-projects'),videos);
-      document.querySelector('#video-result-status').textContent = `${videos.length} ${t('available')} · Video Editing`;
+      document.querySelector('#video-result-status').textContent = `${videos.length} ${t('available')} · ${t('videoEditing')}`;
     }
     if (more) more.hidden = limit >= list.length;
     const count = document.querySelector('#project-count');
     if (count) count.textContent = `${Math.min(limit,list.length)} / ${list.length} ${t('works')}`;
-    document.querySelector('#result-status').textContent = `${list.length} ${t('available')}${filter==='design'?' · '+t('design'):filter==='video'?' · Video Editing':''}`;
+    document.querySelector('#result-status').textContent = `${list.length} ${t('available')}${filter==='design'?' · '+t('design'):filter==='video'?' · '+t('videoEditing'):''}`;
   }
   function openProject(p,trigger) {
     dialog.dataset.projectId=p.id;
     clearTimeout(closeTimer); dialog.classList.remove('closing'); opener=trigger;
-    document.querySelector('#dialog-title').textContent=p.title;
+    document.querySelector('#dialog-title').textContent=projectTitle(p);
     document.querySelector('#dialog-category').textContent=label(p);
-    document.querySelector('#dialog-format').textContent=p.height>p.width?'PORTRAIT':p.height===p.width?'SQUARE':'LANDSCAPE';
+    document.querySelector('#dialog-format').textContent=t(p.height>p.width?'portrait':p.height===p.width?'square':'landscape');
     error.hidden=true; document.querySelector('#youtube-fallback').hidden=true; media.replaceChildren();
     if (p.provider === 'youtube') {
       const frame = document.createElement('iframe');
       frame.className = 'youtube-player';
-      frame.title = p.title;
+      frame.title = projectTitle(p);
       frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(p.youtubeId)}?playsinline=1&rel=0`;
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       frame.allowFullscreen = true;
@@ -168,8 +174,8 @@
       fallback.hidden = false;
     } else {
     const asset=document.createElement(p.type==='video'?'video':'img');
-    if(p.type==='video') {asset.controls=true; asset.playsInline=true; asset.preload='metadata'; asset.poster=p.thumbnail; asset.setAttribute('aria-label',p.title);}
-    else asset.alt=p.title;
+    if(p.type==='video') {asset.controls=true; asset.playsInline=true; asset.preload='metadata'; asset.poster=p.thumbnail; asset.setAttribute('aria-label',projectTitle(p));}
+    else asset.alt=projectTitle(p);
     asset.addEventListener('error',()=>{error.hidden=false;}); asset.src=p.src; media.append(asset);
     }
     document.body.classList.add('modal-open'); dialog.showModal(); document.querySelector('#close-dialog').focus();
@@ -201,7 +207,11 @@
     render();
     if (dialog.open) {
       const project = projects.find(p => p.id === dialog.dataset.projectId);
-      if (project) document.querySelector('#dialog-category').textContent = label(project);
+      if (project) {
+        document.querySelector('#dialog-category').textContent = label(project);
+        document.querySelector('#dialog-title').textContent = projectTitle(project);
+        document.querySelector('#dialog-format').textContent = t(project.height>project.width?'portrait':project.height===project.width?'square':'landscape');
+      }
     }
   });
   render();onScroll();
