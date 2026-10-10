@@ -361,3 +361,15 @@ body[data-portfolio="video"] .work::before{content:"";position:absolute;inset:0;
 .education-layout .experience-entry{padding:24px 0}
 @media(max-width:650px){.experience-place p.experience-role{font-size:11px}.experience-company-years{font-size:10px}.education-layout{margin-top:55px}.experience #education-heading{font-size:35px}.experience-meta{gap:8px}}
 @media(max-width:380px){.experience-meta{flex-direction:row;align-items:center;justify-content:space-between}}
+
+/* Contact: editorial headline paired with direct social links. */
+.contact-body{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(35px,5vw,80px);margin-top:0}
+.contact-body h2{font-size:clamp(44px,6.6vw,94px);line-height:1.08;letter-spacing:-.055em}
+.contact-body h2 span{color:#a39d9f}
+.contact-connect{min-width:230px;padding:24px 0;border-top:1px solid #8e364c;border-bottom:1px solid var(--line)}
+.contact-connect h3{font-family:'Poppins',Arial,sans-serif;font-size:22px;font-weight:500;letter-spacing:-.03em;margin:0 0 24px}
+.contact-social{gap:12px}
+.contact-social .social-link{width:48px;height:48px;background:transparent}
+.contact-bottom{margin-top:55px}
+@media(max-width:900px){.contact-body{grid-template-columns:1fr}.contact-connect{min-width:0;width:fit-content;padding-right:24px}.contact-body h2{font-size:clamp(44px,8vw,72px)}}
+@media(max-width:650px){.contact-body{gap:35px}.contact-body h2{font-size:clamp(36px,8.8vw,57px)}.contact-connect h3{font-size:20px;margin-bottom:20px}.contact-bottom{margin-top:35px}}
