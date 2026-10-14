@@ -416,3 +416,8 @@ main::before,footer::before{content:none}
 .play{padding-left:0}
 .play svg{display:block;width:20px;height:20px;color:var(--text);pointer-events:none}
 @media(max-width:650px){.play svg{width:16px;height:16px}}
+
+/* Muted inline gallery previews stay beneath classification and play controls. */
+.project .video-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;transition:opacity .25s}
+.project .video-preview.preview-ready{opacity:1}
+@media(prefers-reduced-motion:reduce){.project .video-preview{display:none}}

@@ -22,6 +22,51 @@
   const label = p => p.type === 'video' ? t('videoEditing') : t('design');
   const videoClassification = p => p.tag === 'DOKUMENTER' ? t('documentaryLabel') : p.tag === 'PODCAST' ? t('podcastLabel') : t(p.height>p.width?'shortform':'cinematic');
   const projectTitle = p => p.type === 'video' ? videoClassification(p) : p.title;
+  const previews = new Map();
+  const syncPreview = (video,state) => {
+    const active = state.visible && !document.hidden && !dialog.open && !reduced.matches;
+    if (!active) { video.pause(); return; }
+    if (!video.src) { video.src = state.src; video.load(); }
+    video.play()?.catch(() => {});
+  };
+  const previewObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const state = previews.get(entry.target);
+      if (state) { state.visible = entry.isIntersecting; syncPreview(entry.target,state); }
+    });
+  }, {threshold: .15}) : null;
+  const syncPreviews = () => previews.forEach((state,video) => syncPreview(video,state));
+  function clearPreviews() {
+    previews.forEach((state,video) => { previewObserver?.unobserve(video); video.pause(); video.removeAttribute('src'); video.load(); });
+    previews.clear();
+  }
+  function addVideoPreview(card,p) {
+    if (p.provider === 'youtube') return;
+    const video = document.createElement('video');
+    video.className = 'video-preview';
+    video.muted = true; video.defaultMuted = true; video.loop = true; video.playsInline = true;
+    video.setAttribute('muted',''); video.setAttribute('playsinline','');
+    video.setAttribute('aria-hidden','true'); video.setAttribute('tabindex','-1');
+    video.preload = 'none'; video.poster = p.thumbnail;
+    video.width = p.width; video.height = p.height;
+    const cloud = p.src.includes('res.cloudinary.com/') && p.src.includes('/video/upload/');
+    const src = cloud ? p.src.replace('/video/upload/','/video/upload/so_0,du_10,ac_none,c_limit,w_640,q_auto,vc_h264/') : p.src;
+    const state = {visible:false,src,fallback:false};
+    previews.set(video,state);
+    video.addEventListener('playing',() => video.classList.add('preview-ready'));
+    video.addEventListener('timeupdate',() => { if (video.currentTime >= 10) video.currentTime = 0; });
+    video.addEventListener('error',() => {
+      video.classList.remove('preview-ready');
+      if (cloud && !state.fallback) {
+        state.fallback = true; state.src = p.src; video.removeAttribute('src');
+        syncPreview(video,state);
+      }
+    });
+    card.append(video);
+    previewObserver?.observe(video);
+  }
+  document.addEventListener('visibilitychange',syncPreviews);
+  reduced.addEventListener('change',syncPreviews);
   function createProjectCard(p,i) {
       const card = document.createElement('button');
       card.type = 'button';
@@ -41,6 +86,7 @@
       const arrow = document.createElement('span'); arrow.innerHTML=window.portfolioIcons.arrow('↗'); arrow.setAttribute('aria-hidden','true');
       if (p.type !== 'video') {infoCopy.append(category,title); info.append(infoCopy,arrow); card.append(info);}
       if(p.type === 'video') {
+        addVideoPreview(card,p);
         const play=document.createElement('span'); play.className='play'; play.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7Z" fill="currentColor"/></svg>'; play.setAttribute('aria-hidden','true');
         const tag=document.createElement('span'); tag.className='video-tag'; tag.textContent=videoClassification(p);
         card.append(play,tag);
@@ -96,6 +142,7 @@
     list.filter(p=>p.height<=p.width).forEach((p,i)=>other.append(createProjectCard(p,i)));
   }
   function render() {
+    clearPreviews();
     const list = projects.filter(p => filter === 'all' || p.category === filter);
     grid.replaceChildren();
     const stories = document.querySelector('#story-projects');
@@ -174,7 +221,7 @@
     else asset.alt=projectTitle(p);
     asset.addEventListener('error',()=>{error.hidden=false;}); asset.src=p.src; media.append(asset);
     }
-    document.body.classList.add('modal-open'); dialog.showModal(); document.querySelector('#close-dialog').focus();
+    document.body.classList.add('modal-open'); dialog.showModal(); syncPreviews(); document.querySelector('#close-dialog').focus();
   }
   function closeProject() {
     const video=media.querySelector('video'); if(video) video.pause();
@@ -183,7 +230,7 @@
     dialog.classList.add('closing');
     closeTimer=setTimeout(()=>dialog.close(),reduced.matches?0:170);
   }
-  dialog.addEventListener('close',()=>{const video=media.querySelector('video');if(video){video.pause();video.removeAttribute('src');video.load();}media.replaceChildren();document.body.classList.remove('modal-open');dialog.classList.remove('closing');opener?.focus({preventScroll:true});});
+  dialog.addEventListener('close',()=>{const video=media.querySelector('video');if(video){video.pause();video.removeAttribute('src');video.load();}media.replaceChildren();document.body.classList.remove('modal-open');dialog.classList.remove('closing');syncPreviews();opener?.focus({preventScroll:true});});
   dialog.addEventListener('cancel',e=>{e.preventDefault();closeProject();});
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeProject();}});
   document.querySelector('#close-dialog').addEventListener('click',closeProject);
